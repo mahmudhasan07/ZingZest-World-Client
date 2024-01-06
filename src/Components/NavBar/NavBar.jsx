@@ -18,8 +18,8 @@ const NavBar = () => {
     }
 
     return (
-        <section className="border-b-2 border-black">
-            <div className="flex justify-around">
+        <section className="border-b-2 border-black text-lg font-semibold bg-blue-600 text-white">
+            <div className="flex pt-1 justify-around">
                 <div className="">
                     <Drawermodal></Drawermodal>
                 </div>
@@ -27,18 +27,18 @@ const NavBar = () => {
                     <img className="w-60" src={logo} alt="" />
                 </div>
                 <div className="flex relative">
-                    <input type="text" className="border-2 border-black p-2 rounded-3xl w-96 text-black bg-white" />
-                    <button onClick={handlesearch} className="text-2xl my-auto border-l-2 border-black end-2 absolute h-full pl-1"><FaSearch className="" /></button>
+                    <input type="text" className="border-2 border-black p-2 rounded-3xl w-96  text-black bg-white" />
+                    <button onClick={handlesearch} className="text-2xl my-auto border-l-2 border-black text-black  end-1 absolute h-full px-1"><FaSearch className="" /></button>
                 </div>
                 <div className="my-auto">
-                    <NavLink><button className="btn">logIn</button></NavLink>
+                    <NavLink><button className="">logIn</button></NavLink>
                 </div>
                 <div className="text-3xl my-auto">
                     <button><FaCartShopping /></button>
                 </div>
             </div>
-            <div className="flex justify-center mt-2 gap-5">
-                <div className="type border-2 text-lg relative">
+            <div className="flex justify-center mt-2 font-semibold gap-5">
+                <div className="type text-lg  relative">
                     <button  onMouseEnter={()=>sethide('flex')} onMouseLeave={()=>sethide('hidden')} className={`${color}`}>Fashion & Clothing</button>
                     <div onMouseEnter={()=>sethide('flex')} onMouseLeave={()=>sethide('hidden')} className={` type-under ${hide} flex-col absolute left-0  bg-black text-white`}>
                         <NavLink><button>Shirt</button></NavLink>
