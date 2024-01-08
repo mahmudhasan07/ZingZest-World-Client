@@ -1,11 +1,16 @@
-.type{
+.type {
     width: 220px;
     /* font-size: medium; */
     text-align: center;
 }
-.type-under{
+
+.type-under {
     width: 220px;
     text-align: center;
+    font-size: small;
+    background-color: whitesmoke;
+    color: black;
     border: 2px solid whitesmoke;
-    border-radius: 20px;
+    border-radius: 15px;
 }
+
