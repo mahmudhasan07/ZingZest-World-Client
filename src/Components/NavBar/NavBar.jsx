@@ -28,7 +28,7 @@ const NavBar = () => {
                     <NavLink to={'/'}><img className="w-60" src={logo} alt="" /></NavLink>
                 </div>
                 <div className="flex relative">
-                    <input type="text" className="border-2 border-black p-1 rounded-3xl w-96  text-black bg-white" />
+                    <input type="text" className="border-2 border-gray-600 p-1 rounded-3xl w-96  text-black bg-white" />
                     <button onClick={handlesearch} className="text-2xl my-auto border-l-2 border-black text-black  end-1 absolute h-full px-1"><FaSearch className="" /></button>
                 </div>
                 <div className="my-auto">
