@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { } from "./Additem.css";
 import axios from "axios";
 
@@ -7,10 +7,9 @@ const Additem = () => {
 
     const [select, setselect] = useState('')
     const [newarray, setnewaray] = useState()
-    const [datanum, setdatanum] = useState(0)
+    // const [datanum, setdatanum] = useState()
+    const [loading, setloading] = useState(true)
     const allimages = []
-    let j = 0;
-    // const [selectOption, setselectOption] = useState({})
 
     const fashionCloth =
         <>
@@ -52,14 +51,12 @@ const Additem = () => {
         </>
 
     const array = [5, 6, 7]
-    // setnewaray(array)
-    // console.log(newarray);
 
     const handleimageupload = (e) => {
-        // console.log(e.target.files.length);
         const images = e.target.files
+        setloading(true)
 
-        for (let i = 0; i < images.length; i++, j++) {
+        for (let i = 0; i < images.length; i++) {
             const element = images[i];
             console.log(element);
             const imageAPI = new FormData()
@@ -69,13 +66,24 @@ const Additem = () => {
                 .then(res => {
                     // console.log(res.data);
 
-                    // allimages.push(res.data.secure_url)
+                    if (newarray == undefined) {
+                        allimages.push(res.data.secure_url)
+                        console.log(allimages);
+                        setnewaray(allimages)
+                        if (allimages.length === images.length) {
+                            setloading(false)
 
-                    // console.log(allimages);
-                    setnewaray(res.data.secure_url)
-                    console.log(j);
-                
-                    // localStorage.setItem(`data${i}`, res.data.secure_url);
+                        }
+                    } else {
+                        allimages.push(...newarray, res.data.secure_url)
+                        console.log(allimages);
+                        setnewaray(allimages)
+                        if (allimages.length === images.length) {
+                            setloading(false)
+
+                        }
+                    }
+
 
                 })
                 .catch(err => {
@@ -83,16 +91,33 @@ const Additem = () => {
                 })
 
         }
+
+
     }
 
 
+    const handleimage = (id) => {
+        // console.log(id);
+        // newarray.splice(id, 1)
+        // console.log(newarray);
+        // console.log(allimages);
+        // setnewaray(newarray)
+        // console.log(array);
+        if (loading == false) {
+            setloading(true)
+            newarray.splice(id, 1)
+            console.log(newarray);
+            console.log(allimages);
+            setloading(false)
 
+        }
+
+
+    }
+
+    // console.log(allimages);
 
     console.log(newarray);
-    allimages.push(newarray)
-    console.log(allimages);
-    // console.log(datanum);
-
 
     return (
         <section>
@@ -160,14 +185,22 @@ const Additem = () => {
                 </form>
                 <div className="my-10 w-1/4 border-r-2">
                     <h1 className="text-2xl font-semibold text-center">Image Preview</h1>
-                    <div className="flex justify-center gap-5">
+                    <div className="flex flex-wrap justify-center gap-5">
 
-                        {/* {
-                            allimages.length > 0 ?
-                                allimages.map((element, idx) => console.log(element))
+                        {
+                            newarray == undefined ?
+                                "No data preview"
                                 :
-                                <p>No image preview</p>
-                        } */}
+                                loading == true ?
+                                    "loading"
+                                    :
+                                    newarray.map((element, idx) =>
+                                        <div key={idx} className="border-2 border-black" onClick={() => handleimage(idx)}>
+                                            <img src={element} key={idx} className="w-24 border-2 border-gray-600" />
+                                        </div>
+                                    )
+                        }
+
                     </div>
                 </div>
             </div>
