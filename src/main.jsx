@@ -5,8 +5,7 @@ import './index.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './Components/Home/Home.jsx'
-import Additem from './Seller-Flies/Additem/Additem.jsx'
-import AddItem from './Components/AddItem/AddItem.jsx'
+import Item from './Components/Items/Item.jsx'
 
 
 const router = createBrowserRouter([
@@ -19,12 +18,8 @@ const router = createBrowserRouter([
         element : <Home></Home>
       },
       {
-        path :"/additem",
-        element : <Additem></Additem>
-      },
-      {
-        path :"/addimage",
-        element : <AddItem></AddItem>
+        path : "/:id/:id",
+        element : <Item></Item>
       }
     ]
   }
