@@ -11,6 +11,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query'
+import ItemInfo from './Components/Items/ItemInfo.jsx'
 
 const queryClient = new QueryClient()
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path : "/:id/:id",
         element : <Item></Item>
+      },
+      {
+        path : '/:id/:id/:id',
+        element : <ItemInfo></ItemInfo>
       }
     ]
   }

@@ -3,12 +3,12 @@ import { useQuery } from '@tanstack/react-query'
 
 
 
-const useFetch1 = (value1, value2) => {
+const useFetch1 = (value1, value2,value3) => {
     const axiosLink = useAxios(AxiosSource)
     const { isPending, error, data,refetch } = useQuery({
-        queryKey: [`${value1}, ${value2}`],
+        queryKey: [`${value1}, ${value2},${value3}`],
         queryFn: async () => {
-            const res = await axiosLink.get(`/${value1}/${value2}`)
+            const res = await axiosLink.get(`/${value1}/${value2}?data=${value3}`)
             return res.data
         }
     })

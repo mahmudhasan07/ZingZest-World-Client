@@ -14,3 +14,8 @@
     border-radius: 15px;
 }
 
+#searchCard:hover{
+    transform: scale(1.04);
+    transition: all .5s;
+}
+
