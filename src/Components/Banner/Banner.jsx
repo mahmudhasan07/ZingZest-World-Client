@@ -22,8 +22,8 @@ const Banner = () => {
 
             </div>
             <div className='w-1/3'>
-                <div id='bannerborder' className=' '>
-                    <img className='' src="https://i.ibb.co/56VPwFq/model1-removebg-preview.png" alt="" />
+                <div id='bannerborder' onContextMenu={false} className=' '>
+                    <img  className='' src="https://i.ibb.co/56VPwFq/model1-removebg-preview.png" alt="" />
                 </div>
             </div>
         </section>
