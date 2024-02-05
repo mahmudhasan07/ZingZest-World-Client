@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useFetch1 from "../Hooks/usefetch1";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const ItemInfo = () => {
@@ -8,12 +8,22 @@ const ItemInfo = () => {
     const [data, refetch] = useFetch1("item", id?.id)
     const [imgNum, setimgNum] = useState(0)
     const [pSize, setpSize] = useState("")
-    const [quantity,setquantity] = useState(1)
+    const [quantity, setquantity] = useState(1)
     // console.log(data);
+    // useEffect(() => {
 
-    const handleBuy =()=>{
+    //     if (quantity < 1) {
+    //         setquantity(1)
+    //     }
+    // }, [])
 
-        if(data !=="l"){
+    const handleQuantity = () => {
+        if (quantity > 1) { setquantity((pre) => pre - 1) }
+    }
+
+    const handleBuy = () => {
+
+        if (data !== "l") {
             const name = data.name
             const brand = data.brand
             const price = data.price
@@ -22,7 +32,7 @@ const ItemInfo = () => {
             const size = pSize
             const image = data.allImages[1]
             const idNumber = data._id
-            const buyProduct = {name,brand,price,color,size,idNumber,categoryType,image}
+            const buyProduct = { name, brand, price, color, size, idNumber, categoryType, image }
             console.log(buyProduct);
         }
     }
@@ -53,14 +63,14 @@ const ItemInfo = () => {
                                             <p className="text-lg font-semibold">Available sizes</p>
                                             <div className="flex my-1">
                                                 {
-                                                    data.size.map((element, idx) => <button onClick={()=>setpSize(element)} className="border-2 mx-1 p-1 rounded-lg w-8 h-8 text-center focus:bg-blue-500 focus:text-white" key={idx}>{element}</button>)
+                                                    data.size.map((element, idx) => <button onClick={() => setpSize(element)} className="border-2 mx-1 p-1 rounded-lg w-8 h-8 text-center focus:bg-blue-500 focus:text-white" key={idx}>{element}</button>)
                                                 }
                                             </div>
                                         </div>
                                         :
                                         ""
                                 }
-                                <p>Quantity: <span>-</span><span></span><span>+</span></p>
+                                <p className="text-lg my-1 font-semibold">Quantity: <span onClick={handleQuantity} className="mx-1 text-xl">-</span><span className="mx-2">{quantity}</span><span onClick={() => setquantity((pre) => pre + 1)} className="mx-1 text-xl">+</span></p>
                                 <div>
                                     <button onClick={handleBuy} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Buy</button>
                                     <button className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>
