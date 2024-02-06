@@ -3,11 +3,12 @@ import logo from "../../../public/logo (2).png"
 import { FaSearch } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "./NavBar.css"
 import { IoIosLogIn } from "react-icons/io";
 import useFetch1 from "../Hooks/usefetch1";
 import useAxios, { AxiosSource } from "../Axios/useAxios";
+import { Context } from "../ContextAPI/ContextAPI";
 
 const NavBar = () => {
     const [hide, sethide] = useState("hidden")
@@ -21,6 +22,7 @@ const NavBar = () => {
     const [search, setSearch] = useState("hidden")
     const axiosLink = useAxios(AxiosSource)
     const navigate = useNavigate()
+    const { user, logOut } = useContext(Context)
     // const [data, refetch] = useFetch1("search", value)
 
     console.log(array);
@@ -78,7 +80,12 @@ const NavBar = () => {
                     </div>
                 </div>
                 <div className="my-auto">
-                    <NavLink to={'/login'}><button className="flex"><IoIosLogIn className="text-2xl"></IoIosLogIn>logIn</button></NavLink>
+                    {
+                        user ?
+                        <NavLink to={'/login'}><button onClick={()=>logOut()} className="flex"><IoIosLogIn className="text-2xl"></IoIosLogIn>logOut</button></NavLink>
+                        :
+                        <NavLink to={'/login'}><button className="flex"><IoIosLogIn className="text-2xl"></IoIosLogIn>logIn</button></NavLink>
+                    }
                 </div>
                 <div className="text-2xl my-auto">
                     <button className="flex"><FaCartShopping /><span className="text-xl">Cart</span></button>

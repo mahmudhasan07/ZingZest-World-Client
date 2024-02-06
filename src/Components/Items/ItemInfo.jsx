@@ -1,21 +1,18 @@
 import { useParams } from "react-router-dom";
 import useFetch1 from "../Hooks/usefetch1";
 import { useEffect, useState } from "react";
+import useAxios, { AxiosSource } from "../Axios/useAxios";
+import Swal from 'sweetalert2'
+import Comment from "./Comment";
 
 
 const ItemInfo = () => {
     const id = useParams()
     const [data, refetch] = useFetch1("item", id?.id)
     const [imgNum, setimgNum] = useState(0)
-    const [pSize, setpSize] = useState("")
+    const [pSize, setpSize] = useState()
     const [quantity, setquantity] = useState(1)
-    // console.log(data);
-    // useEffect(() => {
-
-    //     if (quantity < 1) {
-    //         setquantity(1)
-    //     }
-    // }, [])
+    const axiosLink = useAxios(AxiosSource)
 
     const handleQuantity = () => {
         if (quantity > 1) { setquantity((pre) => pre - 1) }
@@ -32,8 +29,21 @@ const ItemInfo = () => {
             const size = pSize
             const image = data.allImages[1]
             const idNumber = data._id
-            const buyProduct = { name, brand, price, color, size, idNumber, categoryType, image }
+            const buyProduct = { name, brand, price, color, size, idNumber, categoryType, image,quantity}
             console.log(buyProduct);
+            axiosLink.post("/buy-items", buyProduct)
+            .then(res=>{
+                Swal.fire({
+                    title: "Purchase Successful",
+                    text: "Your product successfully purchase",
+                    icon: "success"
+                  });
+
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+
         }
     }
     return (
@@ -86,17 +96,7 @@ const ItemInfo = () => {
                     </section>
 
             }
-            <div className="lg:ml-10 md:ml-5 ml-0 my-10 border-2 p-2 rounded-2xl border-gray-500 w-1/3">
-                <p className="text-xl font-semibold">Comment Section :-</p>
-                <textarea className="border-2 border-gray-400 rounded-xl" rows={"5"} cols={"50"}></textarea>
-                <button className="btn bg-blue-600 hover:bg-blue-600 text-white">Comment</button>
-                <div>
-                    <h1 className="text-xl font-semibold">View other persons comment</h1>
-                    <div className="border-2">
-                        <h1>Comment</h1>
-                    </div>
-                </div>
-            </div>
+            <Comment></Comment>
         </section>
     );
 };

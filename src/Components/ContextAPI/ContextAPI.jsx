@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "firebase/auth";
 import app from "../User/firebase.config";
 import useAxios, { AxiosSource } from "../Axios/useAxios";
 
@@ -24,12 +24,19 @@ const ContextAPI = ({ children }) => {
         return signOut(auth)
     }
 
+    const updateInfo =(name,photo)=>{
+        setloading(true)
+        return updateProfile(auth.currentUser,{
+            displayName : name, photoURL : photo
+        })
+    }
+
 
     useEffect(()=>{
         onAuthStateChanged (auth,(customer)=>{
             setUser(customer)
             setloading(false)
-            const email = customer.email
+            const email = customer?.email
             if(email){
                 axiosLink.post("/jwt", {email})
                 .then(res=>{
@@ -43,7 +50,7 @@ const ContextAPI = ({ children }) => {
         })
     },[auth,axiosLink])
 
-    const data = {createUser,signUser, logOut,  user, loading}
+    const data = {createUser,signUser, logOut, updateInfo,  user, loading}
 
     return <Context.Provider value={data}>
         {children}

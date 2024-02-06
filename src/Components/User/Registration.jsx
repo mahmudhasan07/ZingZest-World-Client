@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import { Context } from '../ContextAPI/ContextAPI';
+
 
 const Registration = () => {
+    const {createUser, logOut, updateInfo} = useContext(Context)
 
     const handleRegistration =(e)=>{
         e.preventDefault()
@@ -10,6 +14,26 @@ const Registration = () => {
         const email = from.email.value
         const password = from.password.value
         console.log(name,email,password);
+        createUser(email,password)
+        .then(res=>{
+            console.log(res);
+            updateInfo(name)
+            .then(res=>{
+                Swal.fire({
+                    title: "Registration Successful",
+                    text: "Your registration successfully complete",
+                    icon: "success"
+                  });
+                  logOut()
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+
     }
     return (
         <section className='bg-base-300 min-h-screen relative'>

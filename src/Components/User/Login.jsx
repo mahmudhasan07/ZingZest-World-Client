@@ -1,9 +1,31 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { } from "./User.css";
+import Swal from 'sweetalert2'
+import { Context } from '../ContextAPI/ContextAPI';
+
 
 const Login = () => {
     // const [rowreverse, setrowreverse] = useState('')
+    const {signUser} = useContext(Context)
+    const navigate = useNavigate()
+
+    const handleLogIn = (e)=>{
+        e.preventDefault()
+        const from = e.target
+        const email = from.email.value
+        const password = from.password.value
+        signUser (email,password)
+        .then(res=>{
+            
+              navigate('/')
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+
+
 
     
     return (
@@ -12,14 +34,14 @@ const Login = () => {
                 <div className='space-y-5 p-16  mx-auto'>
                     <h1 className='text-3xl font-bold'>LogIn <span>First</span></h1>
 
-                    <form action="" className='w-fit space-y-5 mx-auto'>
+                    <form onSubmit={handleLogIn} action="" className='w-fit space-y-5 mx-auto'>
                         <div>
                             <label className='text-lg font-semibold' htmlFor="">Email Address</label> <br />
-                            <input type="email" className='border-2 p-1 border-gray-400 w-60 rounded-lg' />
+                            <input name='email' type="email" className='border-2 p-1 border-gray-400 w-60 rounded-lg' />
                         </div>
                         <div>
                             <label className='text-lg font-semibold' htmlFor="">Password</label> <br />
-                            <input type="password" className='border-2 p-1 border-gray-400 w-60 rounded-lg' />
+                            <input name='password' type="password" className='border-2 p-1 border-gray-400 w-60 rounded-lg' />
                         </div>
                         <div className='text-end font-bold text-blue-700'>
                             <p>Forget your password??</p>
