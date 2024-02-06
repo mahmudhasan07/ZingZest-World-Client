@@ -12,6 +12,9 @@ import {
   useQuery,
 } from '@tanstack/react-query'
 import ItemInfo from './Components/Items/ItemInfo.jsx'
+import Login from './Components/User/Login.jsx'
+import Registration from './Components/User/Registration.jsx'
+import ContextAPI from './Components/ContextAPI/ContextAPI.jsx'
 
 const queryClient = new QueryClient()
 
@@ -20,18 +23,26 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App></App>,
-    children : [
+    children: [
       {
-        path :'/',
-        element : <Home></Home>
+        path: '/',
+        element: <Home></Home>
       },
       {
-        path : "/:id/:id",
-        element : <Item></Item>
+        path: "/:id/:id",
+        element: <Item></Item>
       },
       {
-        path : '/:id/:id/:id',
-        element : <ItemInfo></ItemInfo>
+        path: '/:id/:id/:id',
+        element: <ItemInfo></ItemInfo>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: '/registration',
+        element: <Registration></Registration>
       }
     ]
   }
@@ -39,10 +50,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <QueryClientProvider  client={queryClient}>
-    <ChakraProvider >
-      <RouterProvider router={router}></RouterProvider>
-    </ChakraProvider>
-    </QueryClientProvider>
+    <ContextAPI>
+      <QueryClientProvider client={queryClient}>
+        <ChakraProvider >
+          <RouterProvider router={router}></RouterProvider>
+        </ChakraProvider>
+      </QueryClientProvider>
+    </ContextAPI>
   </React.StrictMode>,
 )

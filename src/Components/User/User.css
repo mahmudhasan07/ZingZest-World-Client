@@ -1,0 +1,15 @@
+#loginBanner{
+    background-image: linear-gradient(blue, blue, lightblue);
+
+    border-radius : 70px 50px 50px 70px
+
+}
+#registrationBanner {
+    background-image: linear-gradient(blue, blue, lightblue);
+
+    border-radius : 50px 70px 70px 50px
+}
+#login{
+    border-radius: 50px;
+    transition: all 2s;
+}

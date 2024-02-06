@@ -78,10 +78,10 @@ const NavBar = () => {
                     </div>
                 </div>
                 <div className="my-auto">
-                    <NavLink><button className="flex"><IoIosLogIn className="text-2xl"></IoIosLogIn>logIn</button></NavLink>
+                    <NavLink to={'/login'}><button className="flex"><IoIosLogIn className="text-2xl"></IoIosLogIn>logIn</button></NavLink>
                 </div>
                 <div className="text-2xl my-auto">
-                    <button><FaCartShopping /></button>
+                    <button className="flex"><FaCartShopping /><span className="text-xl">Cart</span></button>
                 </div>
                 <div className="my-auto">
                     <NavLink to={`ZWseller`}><p>Become a seller</p></NavLink>

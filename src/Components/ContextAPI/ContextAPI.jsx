@@ -41,9 +41,11 @@ const ContextAPI = ({ children }) => {
             }
 
         })
-    },[])
+    },[auth,axiosLink])
 
-    return <Context.Provider>
+    const data = {createUser,signUser, logOut,  user, loading}
+
+    return <Context.Provider value={data}>
         {children}
     </Context.Provider>
 };
