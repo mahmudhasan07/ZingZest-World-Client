@@ -101,10 +101,10 @@ const ItemInfo = () => {
 
             }
             <div className="flex border-2 border-gray-400">
-                <div>
+                <div className="w-1/3">
                     <Comment></Comment>
                 </div>
-                <div className=" mx-auto">{
+                <div className=" w-1/2 mx-auto">{
                     data !== "l" ?
                         <Suggest card={data?.categoryType}></Suggest>
                         :
