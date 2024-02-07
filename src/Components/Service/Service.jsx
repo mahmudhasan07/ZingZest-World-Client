@@ -12,7 +12,7 @@ const Service = () => {
     return (
         <section className='lg:my-10 my-6'>
             <h1 className='text-3xl font-bold text-center lg:mb-5 mb-3'>Our Service</h1>
-            <div className='flex justify-center gap-5'>
+            <div className='flex flex-wrap justify-center gap-5'>
                 <div className='servicediv'>
                     <img src={shopping} alt="" />
                     <p>Best Shopping</p>

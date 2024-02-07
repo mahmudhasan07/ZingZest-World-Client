@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import useFetch1 from "../Hooks/usefetch1";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxios, { AxiosSource } from "../Axios/useAxios";
 import Swal from 'sweetalert2'
 import Comment from "./Comment";
+import { Context } from "../ContextAPI/ContextAPI";
+import Suggest from "./Suggest";
 
 
 const ItemInfo = () => {
@@ -12,6 +14,7 @@ const ItemInfo = () => {
     const [imgNum, setimgNum] = useState(0)
     const [pSize, setpSize] = useState()
     const [quantity, setquantity] = useState(1)
+    const { user } = useContext(Context)
     const axiosLink = useAxios(AxiosSource)
 
     const handleQuantity = () => {
@@ -29,20 +32,21 @@ const ItemInfo = () => {
             const size = pSize
             const image = data.allImages[1]
             const idNumber = data._id
-            const buyProduct = { name, brand, price, color, size, idNumber, categoryType, image,quantity}
+            const buyer = user?.email
+            const buyProduct = { name, brand, price, color, size, idNumber, categoryType, image, quantity, buyer }
             console.log(buyProduct);
             axiosLink.post("/buy-items", buyProduct)
-            .then(res=>{
-                Swal.fire({
-                    title: "Purchase Successful",
-                    text: "Your product successfully purchase",
-                    icon: "success"
-                  });
+                .then(res => {
+                    Swal.fire({
+                        title: "Purchase Successful",
+                        text: "Your product successfully purchase",
+                        icon: "success"
+                    });
 
-            })
-            .catch(error=>{
-                console.log(error);
-            })
+                })
+                .catch(error => {
+                    console.log(error);
+                })
 
         }
     }
@@ -57,7 +61,7 @@ const ItemInfo = () => {
                         <div className="flex">
                             <div className="flex-1 ">
                                 <img className="w-80 mx-auto aspect-square object-contain" src={data.allImages[imgNum]} alt="" />
-                                <div className="flex justify-center my-5 gap-10">
+                                <div className="flex justify-center overflow-auto my-5 gap-10">
                                     {
                                         data?.allImages.map((element, idx) => <img onClick={() => setimgNum(idx)} className="w-20 h-16 object-contain" key={idx} src={element}></img>)
                                     }
@@ -96,7 +100,19 @@ const ItemInfo = () => {
                     </section>
 
             }
-            <Comment></Comment>
+            <div className="flex border-2 border-gray-400">
+                <div>
+                    <Comment></Comment>
+                </div>
+                <div className=" mx-auto">{
+                    data !== "l" ?
+                        <Suggest card={data?.categoryType}></Suggest>
+                        :
+                        ""
+                }
+                </div>
+            </div>
+
         </section>
     );
 };

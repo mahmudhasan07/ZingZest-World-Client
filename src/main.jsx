@@ -15,6 +15,7 @@ import ItemInfo from './Components/Items/ItemInfo.jsx'
 import Login from './Components/User/Login.jsx'
 import Registration from './Components/User/Registration.jsx'
 import ContextAPI from './Components/ContextAPI/ContextAPI.jsx'
+import MyProfile from './Components/User/MyProfile.jsx'
 
 const queryClient = new QueryClient()
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: '/registration',
         element: <Registration></Registration>
+      },
+      {
+        path : "/my-profile",
+        element : <MyProfile></MyProfile>
       }
     ]
   }
