@@ -2,7 +2,7 @@ This is an E-commerce website.Where the user can browse through various category
 Website Link : https://client-zingzest.web.app
 Seller Link : https://seller-zingzest.web.app
 
-Technology Used : React, Html, Css, Node.js, MongoDB, Express.js  AOS, Chakra UI.
+Technology Used : React, Html, Css, Node.js, MongoDB, Express.js  AOS, Chakra UI, JWT.
 
 Features of Website:
 1. User can search any kind of products in out search section.
