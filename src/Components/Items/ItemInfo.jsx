@@ -6,6 +6,8 @@ import Swal from 'sweetalert2'
 import Comment from "./Comment";
 import { Context } from "../ContextAPI/ContextAPI";
 import Suggest from "./Suggest";
+import AOS from "aos"
+import 'aos/dist/aos.css';
 
 
 const ItemInfo = () => {
@@ -16,6 +18,11 @@ const ItemInfo = () => {
     const [quantity, setquantity] = useState(1)
     const { user } = useContext(Context)
     const axiosLink = useAxios(AxiosSource)
+
+
+    useEffect(() => {
+        AOS.init()
+    }, [])
 
     const handleQuantity = () => {
         if (quantity > 1) { setquantity((pre) => pre - 1) }
@@ -59,7 +66,10 @@ const ItemInfo = () => {
                     :
                     <section>
                         <div className="flex">
-                            <div className="flex-1 ">
+                            <div data-aos="fade-right"
+                                data-aos-offset="300"
+                                data-aos-delay={300}
+                                data-aos-easing="ease-in-sine" className="flex-1 ">
                                 <img className="w-80 mx-auto aspect-square object-contain" src={data.allImages[imgNum]} alt="" />
                                 <div className="flex justify-center overflow-auto my-5 gap-10">
                                     {
@@ -67,7 +77,10 @@ const ItemInfo = () => {
                                     }
                                 </div>
                             </div>
-                            <div className=" my-auto space-y-2 flex-1">
+                            <div data-aos="fade-right"
+                                data-aos-offset="300"
+                                data-aos-delay={400}
+                                data-aos-easing="ease-in-sine" className=" my-auto space-y-2 flex-1">
                                 <h1 className="text-3xl font-bold">{data.name}</h1>
                                 <p className="text-lg font-semibold">Brand: {data.brand}</p>
                                 <p className="text-lg font-semibold">Tk: {data.price}</p>
@@ -94,22 +107,32 @@ const ItemInfo = () => {
                         <div className="lg:ml-10 md:ml-5 ml-0 my-10">
                             <h1 className="text-2xl font-bold">Product Details</h1>
                             {
-                                data?.details.map((element, idx) => <li className="text-lg" key={idx}>{element}</li>)
+                                data?.details.map((element, idx) =>
+                                    <li data-aos="fade-right"
+                                        data-aos-offset="300"
+                                        data-aos-delay={(idx + 1) * 300}
+                                        data-aos-easing="ease-in-sine" className="text-lg" key={idx}>{element}</li>)
                             }
                         </div>
                     </section>
 
             }
-            <div className="flex border-2 border-gray-400">
-                <div className="w-1/3">
+            <div className="flex flex-wrap border-gray-400">
+                <div data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-delay={300}
+                    data-aos-easing="ease-in-sine" className="lg:w-1/3">
                     <Comment></Comment>
                 </div>
-                <div className=" w-1/2 mx-auto">{
-                    data !== "l" ?
-                        <Suggest card={data?.categoryType}></Suggest>
-                        :
-                        ""
-                }
+                <div data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-delay={400}
+                    data-aos-easing="ease-in-sine" className=" lg:w-1/2 mx-auto">{
+                        data !== "l" ?
+                            <Suggest card={data?.categoryType}></Suggest>
+                            :
+                            ""
+                    }
                 </div>
             </div>
 

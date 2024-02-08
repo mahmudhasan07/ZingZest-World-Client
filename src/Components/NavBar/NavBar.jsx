@@ -98,7 +98,7 @@ const NavBar = () => {
                     <button className="flex"><FaCartShopping /><span className="text-xl">Cart</span></button>
                 </div>
                 <div className="my-auto">
-                    <NavLink to={`ZWseller`}><p>Become a seller</p></NavLink>
+                    <NavLink to={`https://seller-zingzest.web.app`}><p>Become a seller</p></NavLink>
                 </div>
             </div>
             <div className="lg:block hidden">

@@ -21,23 +21,25 @@ const Comment = () => {
         console.log(data);
 
         axiosLink.post("/comments", data)
-        .then(res=>{
-            Swal.fire({
-                title: "Comment Successful",
-                text: "Your comment successfully post",
-                icon: "success"
-            })
+            .then(res => {
+                Swal.fire({
+                    title: "Comment Successful",
+                    text: "Your comment successfully post",
+                    icon: "success"
+                })
+                refetch()
 
-        })
-        .catch(error=>{
-            console.log(error);
-        })
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
-        <section>
-            <div className="lg:ml-10 md:ml-5 ml-0 my-10 border-2 p-2 rounded-2xl border-gray-500 ">
-                <p className="text-xl font-semibold">Comment Section :-</p>
+        <section className='lg:ml-10 md:ml-5 ml-0'>
+            <h1 className='text-2xl font-semibold'>Comment Section</h1>
+            <div className=" my-10 border-2 p-2 rounded-2xl border-gray-500 ">
+                <p className="text-xl font-semibold">Enter your comment</p>
                 <textarea ref={commentData} className="border-2 border-gray-400 rounded-xl p-2" rows={"5"} cols={"50"}></textarea>
                 <div className='flex gap-3'>
                     <p>Review</p>
@@ -52,16 +54,17 @@ const Comment = () => {
                     <h1 className="text-xl font-semibold">View other persons comment</h1>
                     <div className="border-2 h-64">
                         {
-                            data =="l"?
-                            "loading"
-                            :
-                            data.map((element,idx)=>
-                            <div className='border-2 border-gray-500 p-2 rounded-2xl' key={idx}>
-                                <div>
-                                    <h1 className='text-lg font-semibold'>{element?.email}</h1>
-                                </div>
-                                <p>{element?.comment}</p>
-                            </div>)
+                            data == "l" ?
+                                "loading"
+                                :
+                                data.map((element, idx) =>
+                                    <div className='border-2 border-gray-500 p-2 rounded-2xl' key={idx}>
+                                        <div>
+                                            <h1 className='text-lg font-semibold'>{element?.email}</h1>
+                                            
+                                        </div>
+                                        <p>{element?.comment}</p>
+                                    </div>)
                         }
                     </div>
                 </div>

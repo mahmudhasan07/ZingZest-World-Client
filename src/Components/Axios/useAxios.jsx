@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const AxiosSource = axios.create({
-    baseURL: "http://localhost:2000",
+    baseURL: "https://zingzest-server.vercel.app",
     withCredentials : true
 })
 const useAxios = () => {

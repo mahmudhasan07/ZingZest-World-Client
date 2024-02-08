@@ -1,8 +1,9 @@
-# React + Vite
+This is an E-commerce website.Where the user can browse through various category products from this website.
+Website Link : https://client-zingzest.web.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Technology Used : React, Html, Css, Node.js, MongoDB, Express.js  AOS, Chakra UI.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features of Website:
+1. User can search any kind of products in out search section.
+2. The product details page will show all information of each product.
+3. There are a filter options where you can filter product by their name, type etc..
