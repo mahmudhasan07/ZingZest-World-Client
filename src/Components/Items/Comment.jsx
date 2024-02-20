@@ -3,6 +3,9 @@ import useAxios, { AxiosSource } from '../Axios/useAxios';
 import { Context } from '../ContextAPI/ContextAPI';
 import Swal from 'sweetalert2';
 import useFetch from '../Hooks/useFetch';
+import { Rating, Star } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 import useFetch1 from '../Hooks/usefetch1';
 
 const Comment = ({ id, rating }) => {
@@ -13,6 +16,11 @@ const Comment = ({ id, rating }) => {
     const axiosLink = useAxios(AxiosSource)
 
     // console.log(rating);
+    const myStyles = {
+        itemShapes: Star,
+        activeFillColor: '#ffb700',
+        inactiveFillColor: '#fbf1a9'
+      }
     console.log(rating);
     const handleComment = (e) => {
         e.preventDefault()
@@ -87,12 +95,7 @@ const Comment = ({ id, rating }) => {
                                     <div className='border-2 space-y-1 border-gray-500 p-2 rounded-2xl' key={idx}>
                                         <div>
                                             <h1 className='text-lg font-semibold'>{element?.email}</h1>
-                                            <Rating
-                                                placeholderRating={3.5}
-                                                emptySymbol={<img src="assets/images/star-grey.png" className="icon" />}
-                                                placeholderSymbol={<img src="assets/images/star-red.png" className="icon" />}
-                                                fullSymbol={<img src="assets/images/star-yellow.png" className="icon" />}
-                                            />
+                                            <Rating style={{ maxWidth: 300 }} value={rating}  itemStyles={myStyles} />
 
                                         </div>
                                         <p>{element?.comment}</p>
