@@ -3,9 +3,8 @@ import useFetch1 from "../Hooks/usefetch1";
 
 
 const Suggest = ({ card }) => {
-    console.log(card);
     const [data, refetch] = useFetch1("search", card)
-    console.log(data);
+    // console.log(data);
     return (
         <section>
             <h1 className="text-2xl font-semibold">Similar product that you are finding</h1>

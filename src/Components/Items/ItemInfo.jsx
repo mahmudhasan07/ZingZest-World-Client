@@ -18,6 +18,7 @@ const ItemInfo = () => {
     const [quantity, setquantity] = useState(1)
     const { user } = useContext(Context)
     const axiosLink = useAxios(AxiosSource)
+    console.log(data);
 
 
     useEffect(() => {
@@ -128,7 +129,7 @@ const ItemInfo = () => {
                         data == "l"?
                         "loading" 
                         :
-                        <Comment id={data._id} ></Comment>
+                        <Comment id={data._id} rating={data?.review} ></Comment>
                     }
                 </div>
                 {/* //! Suggest products section */}
