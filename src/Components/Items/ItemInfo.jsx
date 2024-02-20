@@ -77,7 +77,7 @@ const ItemInfo = () => {
                                     }
                                 </div>
                             </div>
-                            <div data-aos="fade-right"
+                            <div data-aos="fade-left"
                                 data-aos-offset="300"
                                 data-aos-delay={400}
                                 data-aos-easing="ease-in-sine" className=" my-auto space-y-2 flex-1">
@@ -117,14 +117,22 @@ const ItemInfo = () => {
                     </section>
 
             }
+
+            {/* //! Comment Section */}
             <div className="flex flex-wrap border-gray-400">
                 <div data-aos="fade-right"
                     data-aos-offset="300"
                     data-aos-delay={300}
                     data-aos-easing="ease-in-sine" className="lg:w-1/3">
-                    <Comment></Comment>
+                    {
+                        data == "l"?
+                        "loading" 
+                        :
+                        <Comment id={data._id} ></Comment>
+                    }
                 </div>
-                <div data-aos="fade-right"
+                {/* //! Suggest products section */}
+                <div data-aos="fade-left"
                     data-aos-offset="300"
                     data-aos-delay={400}
                     data-aos-easing="ease-in-sine" className=" lg:w-1/2 mx-auto">{

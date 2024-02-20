@@ -3,7 +3,7 @@ import useFetch1 from "../Hooks/useFetch1";
 import { useEffect, useRef, useState } from "react";
 import AOS from "aos"
 import 'aos/dist/aos.css';
-import {  } from "./Item.css";
+import { } from "./Item.css";
 
 const Item = () => {
     const id = useParams()
@@ -19,7 +19,8 @@ const Item = () => {
     const handleSort = (e) => {
         e.preventDefault()
         const sortValue = sort.current.value
-        setSortData(sortValue)
+
+            setSortData(sortValue)
         console.log(sortValue);
 
     }
@@ -28,7 +29,7 @@ const Item = () => {
         <section className="my-10">
             <h1 className="text-3xl font-semibold text-center">Your {id?.id} items</h1>
             <div className="flex justify-end mb-5 mr-10">
-                <select onClick={handleSort} ref={sort} className="border-2 p-1 text-lg border-gray-400 rounded-xl w-40" id="">
+                <select onChange={handleSort} ref={sort} className="border-2 p-1 text-lg border-gray-400 rounded-xl w-40" id="">
                     <option value="default">Default</option>
                     <option value="sorta-b">Low to High</option>
                     <option value="sortb-a">High to Low</option>
@@ -52,10 +53,10 @@ const Cards = ({ card, id }) => {
     return (
         <div data-aos="fade-right"
             data-aos-offset="300"
-            data-aos-delay={id * 300}
-            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-52 border-2 border-gray-300 p-2 rounded-2xl">
-            <img className="w-48 aspect-square py-1 object-contain" src={card?.allImages[0]} alt="" />
-            <h1 className="font-bold">{card?.name}</h1>
+            data-aos-delay={id * 250}
+            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-56 text-center space-y-1 card border-2 shadow-xl border-gray-300 p-2 rounded-2xl">
+            <img className="w-48 aspect-square py-1 object-contain  " src={card?.allImages[0]} alt="" />
+            <h1 className="text-lg font-bold">{card?.name}</h1>
             <p className="font-semibold">TK. {card?.price}</p>
         </div>
     )

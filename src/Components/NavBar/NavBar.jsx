@@ -83,7 +83,7 @@ const NavBar = () => {
                                     <img className="w-10  rounded-full object-cover" src={user?.photoURL} alt="" />
                                     <h1 className="my-auto">Hello,{user?.displayName}</h1>
                                 </div>
-                                <div onMouseEnter={() => setUserProfile("flex")} onMouseLeave={() => setUserProfile("hidden")} className={`absolute space-y-1 flex-col w-full text-center bg-white text-black p-2 top-10 rounded-2xl ${userProfile}`}>
+                                <div onMouseEnter={() => setUserProfile("flex")} onMouseLeave={() => setUserProfile("hidden")} className={`z-50 absolute space-y-1 flex-col w-full text-center bg-white text-black p-2 top-10 rounded-2xl ${userProfile}`}>
                                     <NavLink to={`/my-profile`} className={`hover:bg-blue-300 rounded-2xl `}><h1>My Profile</h1></NavLink>
                                     <NavLink to={'/my-orders'} className={`hover:bg-blue-300 rounded-2xl `}><h1>My Orders</h1></NavLink>
                                     <NavLink to={'/login'} className={`hover:bg-blue-300 rounded-2xl p-1 mx-auto`}><button onClick={() => logOut()} className="flex justify-center"><IoIosLogIn className="text-2xl"></IoIosLogIn>logOut</button></NavLink>
