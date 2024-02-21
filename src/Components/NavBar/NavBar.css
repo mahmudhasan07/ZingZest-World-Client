@@ -19,3 +19,14 @@
     transition: all .5s;
 }
 
+#seachscroll::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+#seachscroll::-webkit-scrollbar-thumb {
+    background-color: rgba(46, 81, 239, 0.875);
+    border-radius: 10px;
+}
+

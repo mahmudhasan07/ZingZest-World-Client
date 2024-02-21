@@ -57,9 +57,9 @@ const NavBar = () => {
                     <NavLink to={'/'}><img className="w-60" src={logo} alt="" /></NavLink>
                 </div>
                 <div className="flex relative">
-                    <input ref={inputData} onChange={handleInput} type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl w-80  text-black bg-white" />
+                    <input ref={inputData} onChange={handleInput}  type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl w-80  text-black bg-white" />
                     <button onClick={handlesearch} className="text-2xl my-auto border-l-2 border-black text-black  end-1 absolute h-full px-1"><FaSearch className="" /></button>
-                    <div className={`bg-white absolute top-12 w-full text-center p-3 rounded-2xl z-50 text-black ${search}`}>
+                    <div id="seachscroll" className={`bg-white absolute h-96 overflow-auto top-12 w-full text-center p-3 rounded-lg z-50 text-black ${search}`}>
                         {
                             array.length > 0 ?
                                 array?.map((element, idx) =>
