@@ -4,12 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import AOS from "aos"
 import 'aos/dist/aos.css';
 import { } from "./Item.css";
+import { Rating, Star } from "@smastrom/react-rating";
 
 const Item = () => {
     const id = useParams()
     const sort = useRef()
     const [sortData, setSortData] = useState()
-    // console.log(id);
+    console.log(id);
     const [data, refetch] = useFetch1("search", id?.id, sortData)
     // console.log(data);
     useEffect(() => {
@@ -20,7 +21,7 @@ const Item = () => {
         e.preventDefault()
         const sortValue = sort.current.value
 
-            setSortData(sortValue)
+        setSortData(sortValue)
         console.log(sortValue);
 
     }
@@ -50,13 +51,24 @@ const Item = () => {
 
 const Cards = ({ card, id }) => {
     const navigate = useNavigate()
+    const myStyles = {
+        itemShapes: Star,
+        activeFillColor: '#ffb700',
+        inactiveFillColor: '#fbf1a9'
+    }
     return (
         <div data-aos="fade-right"
             data-aos-offset="300"
             data-aos-delay={id * 250}
-            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-56 text-center space-y-1 card border-2 shadow-xl border-gray-300 p-2 rounded-2xl">
-            <img className="w-48 aspect-square py-1 object-contain  " src={card?.allImages[0]} alt="" />
+            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-64 text-center space-y-1 card border-2 shadow-xl border-gray-300 p-2 rounded-2xl">
+            <img className="w-56 h-48 mx-auto aspect-square py-1 object-contain  " src={card?.allImages[0]} alt="" />
             <h1 className="text-lg font-bold">{card?.name}</h1>
+            {
+                card?.review ?
+                    <Rating className="mx-auto" style={{ maxWidth: 100 }} value={card?.review} readOnly={true} itemStyles={myStyles} />
+                    :
+                    ""
+            }
             <p className="font-semibold">TK. {card?.price}</p>
         </div>
     )
