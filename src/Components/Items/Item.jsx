@@ -10,9 +10,8 @@ const Item = () => {
     const id = useParams()
     const sort = useRef()
     const [sortData, setSortData] = useState()
-    console.log(id);
     const [data, refetch] = useFetch1("search", id?.id, sortData)
-    // console.log(data);
+    console.log(data);
     useEffect(() => {
         AOS.init()
     }, [])
@@ -41,6 +40,9 @@ const Item = () => {
                 {
                     data == "l" ?
                         "loading"
+                        :
+                        data == "A"?
+                        "no data found"
                         :
                         data.map((element, idx) => <Cards key={idx} id={idx + 1} card={element}></Cards>)
                 }

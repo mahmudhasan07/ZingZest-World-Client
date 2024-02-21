@@ -6,14 +6,17 @@ const MyOrders = () => {
     const { user } = useContext(Context)
     const email = user?.email
     const [data, refetch] = useFetch("my-orders", email)
-    console.log(data);
+    console.log(data.length);
     return (
         <section>
             <h1 className="text-4xl text-center font-bold my-10">My Orders</h1>
-            <div className="lg:w-1/2 mx-auto">
+            <div className="lg:w-1/2  mx-auto">
                 {
                     data == "l" ?
                         "loading"
+                        :
+                        data.length >0?
+                        "No orders yet!"
                         :
                         data.map((element, idx) => <Cards key={idx} card={element}></Cards>)
                 }
