@@ -13,6 +13,7 @@ const Comment = ({ id, rating }) => {
     const { user } = useContext(Context)
     const [data, refetch] = useFetch1("comments", id)
     const [review, setreview] = useState(0)
+    const [totalReview, settotalReview] = useState(0)
     const axiosLink = useAxios(AxiosSource)
 
     // console.log(rating);
@@ -31,42 +32,43 @@ const Comment = ({ id, rating }) => {
 
 
         console.log(review);
-        axiosLink.post("/comments", data)
-            .then(res => {
-                Swal.fire({
-                    title: "Comment Successful",
-                    text: "Your comment successfully post",
-                    icon: "success"
-                })
-                if (rating == undefined) {
+        console.log(totalReview);
+        // axiosLink.post("/comments", data)
+        //     .then(res => {
+        //         Swal.fire({
+        //             title: "Comment Successful",
+        //             text: "Your comment successfully post",
+        //             icon: "success"
+        //         })
+        //         if (rating == undefined) {
 
-                    console.log(review);
-                    // console.log(data);
-                    axiosLink.patch(`/items/${id}`, { review })
-                        .then(res => {
-                            console.log(res);
-                        })
-                        .catch(error => {
-                            console.log(error);
-                        })
-                }
-                if (rating > 0) {
-                    console.log(review);
-                    axiosLink.patch(`/items/${id}`, { review })
-                        .then(res => {
-                            console.log(res);
-                        })
-                        .catch(error => {
-                            console.log(error);
-                        })
+        //             console.log(review);
+        //             // console.log(data);
+        //             axiosLink.patch(`/items/${id}`, { review })
+        //                 .then(res => {
+        //                     console.log(res);
+        //                 })
+        //                 .catch(error => {
+        //                     console.log(error);
+        //                 })
+        //         }
+        //         if (rating > 0) {
+        //             console.log(review);
+        //             axiosLink.patch(`/items/${id}`, { review })
+        //                 .then(res => {
+        //                     console.log(res);
+        //                 })
+        //                 .catch(error => {
+        //                     console.log(error);
+        //                 })
 
-                }
-                refetch()
+        //         }
+        //         refetch()
 
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
     }
 
     return (
@@ -77,11 +79,11 @@ const Comment = ({ id, rating }) => {
                 <textarea ref={commentData} className="border-2 border-gray-400 rounded-xl p-2" rows={"5"} cols={"50"}></textarea>
                 <div className='flex gap-3'>
                     <p>Review</p>
-                    <button onClick={() => setreview((rating + 5) / 2 || 5)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐5</button>
-                    <button onClick={() => setreview((rating + 4) / 2 || 4)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐4</button>
-                    <button onClick={() => setreview((rating + 3) / 2 || 3)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐3</button>
-                    <button onClick={() => setreview((rating + 2) / 2 || 2)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐2</button>
-                    <button onClick={() => setreview((rating + 1) / 2 || 1)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐1</button>
+                    <button onClick={() => settotalReview((rating + 5)/ 2 &&  setreview(5))} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐5</button>
+                    <button onClick={() => settotalReview((rating + 4)/ 2 &&  setreview(4))} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐4</button>
+                    <button onClick={() => settotalReview((rating + 3)/ 2 &&  setreview(3))} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐3</button>
+                    <button onClick={() => settotalReview((rating + 2)/ 2 &&  setreview(2))} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐2</button>
+                    <button onClick={() => settotalReview((rating + 1)/ 2 &&  setreview(1))} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐1</button>
                 </div>
                 <button onClick={handleComment} className="btn bg-blue-600 hover:bg-blue-600 text-white">Comment</button>
                 <div>
@@ -93,9 +95,9 @@ const Comment = ({ id, rating }) => {
                                 :
                                 data.map((element, idx) =>
                                     <div className='border-2 space-y-1 border-gray-500 p-2 rounded-2xl' key={idx}>
-                                        <div>
+                                        <div className='flex justify-between'>
                                             <h1 className='text-lg font-semibold'>{element?.email}</h1>
-                                            <Rating style={{ maxWidth: 300 }} value={rating}  itemStyles={myStyles} />
+                                            <Rating style={{ maxWidth: 100 }} value={rating} readOnly={true}  itemStyles={myStyles} />
 
                                         </div>
                                         <p>{element?.comment}</p>

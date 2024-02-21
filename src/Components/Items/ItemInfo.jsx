@@ -8,6 +8,9 @@ import { Context } from "../ContextAPI/ContextAPI";
 import Suggest from "./Suggest";
 import AOS from "aos"
 import 'aos/dist/aos.css';
+import { Rating, Star } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 
 
 const ItemInfo = () => {
@@ -19,6 +22,11 @@ const ItemInfo = () => {
     const { user } = useContext(Context)
     const axiosLink = useAxios(AxiosSource)
     console.log(data);
+    const myStyles = {
+        itemShapes: Star,
+        activeFillColor: '#ffb700',
+        inactiveFillColor: '#fbf1a9'
+      }
 
 
     useEffect(() => {
@@ -99,6 +107,7 @@ const ItemInfo = () => {
                                         ""
                                 }
                                 <p className="text-lg my-1 font-semibold">Quantity: <span onClick={handleQuantity} className="mx-1 text-xl cursor-pointer">-</span><span className="mx-2">{quantity}</span><span onClick={() => setquantity((pre) => pre + 1)} className="mx-1 text-xl cursor-pointer">+</span></p>
+                                <Rating style={{ maxWidth: 120 }} value={data?.review} readOnly={true}  itemStyles={myStyles} />
                                 <div>
                                     <button onClick={handleBuy} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Buy</button>
                                     <button className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>

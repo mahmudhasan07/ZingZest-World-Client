@@ -24,7 +24,7 @@ const Suggest = ({ card }) => {
 const Card = ({ card }) => {
     const navigate = useNavigate()
     return (
-        <div onClick={()=> navigate(`/${card.category}/${card.categoryType}/${card?._id}`)} className="w-40 border-gray-400 rounded-2xl text-center p-1 border-2">
+        <div onClick={()=> navigate(`/${card.category}/${card.categoryType}/${card?._id}`)} className="w-40 border-gray-400 cursor-pointer rounded-2xl text-center p-1 border-2">
             <img className="w-32 h-32 object-contain mx-auto" src={card.allImages[0]} alt="" />
             <h1 className="font-semibold">{card.name}</h1>
             <p>{card.price}TK</p>
