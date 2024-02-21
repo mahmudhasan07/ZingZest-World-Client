@@ -17,6 +17,7 @@ import Registration from './Components/User/Registration.jsx'
 import ContextAPI from './Components/ContextAPI/ContextAPI.jsx'
 import MyProfile from './Components/User/MyProfile.jsx'
 import MyOrders from './Components/User/MyOrders.jsx'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 const queryClient = new QueryClient()
 
@@ -63,7 +64,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ContextAPI>
       <QueryClientProvider client={queryClient}>
         <ChakraProvider >
+          <ParallaxProvider>
           <RouterProvider router={router}></RouterProvider>
+          </ParallaxProvider>
         </ChakraProvider>
       </QueryClientProvider>
     </ContextAPI>

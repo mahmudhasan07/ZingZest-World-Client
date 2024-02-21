@@ -54,7 +54,7 @@ const NavBar = () => {
                     <Drawermodal></Drawermodal>
                 </div>
                 <div id="logo">
-                    <NavLink to={'/'}><img className="w-60" src={logo} alt="" /></NavLink>
+                    <NavLink to={'/'}><img className="w-60 text-white" src={logo} alt="" /></NavLink>
                 </div>
                 <div className="flex relative">
                     <input ref={inputData} onChange={handleInput}  type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl w-80  text-black bg-white" />

@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import Service from "../Service/Service";
+import Parallaxbanner from "./ParallaxBanner";
 import TopRating from "./TopRating";
 
 
@@ -14,6 +15,9 @@ const Home = () => {
             </div>
             <div>
                 <TopRating></TopRating>
+            </div>
+            <div>
+                <Parallaxbanner></Parallaxbanner>
             </div>
         </section>
     );

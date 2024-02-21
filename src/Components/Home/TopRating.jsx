@@ -1,5 +1,6 @@
 import { Rating, Star } from "@smastrom/react-rating";
 import useFetch from "../Hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 const TopRating = () => {
     const [data, refetch] = useFetch("items", "toprating")
@@ -25,8 +26,9 @@ const TopRating = () => {
 };
 
 const Card = ({card})=>{
+    const navigate = useNavigate()
     return(
-        <div className="card text-center w-60 border-2 border-gray-400 p-1">
+        <div onClick={()=> navigate(`/${card.category}/${card.categoryType}/${card._id}`)} className="card text-center cursor-pointer w-60 border-2 border-gray-400 p-1">
             <img src={card?.allImages[0]} className="w-52 aspect-square object-contain" alt="" />
             <h1 className="text-lg font-semibold">{card.name}</h1> 
             <Rating className="mx-auto" style={{ maxWidth: 100 }} value={card?.review} readOnly={true} itemStyles={{itemShapes: Star, activeFillColor: '#ffb700',inactiveFillColor: '#fbf1a9'}} />
