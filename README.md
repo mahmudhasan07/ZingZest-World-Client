@@ -11,4 +11,4 @@ Features of Website:
 4. It has JWT authorization system so that if someone get your backed link, they can't access your account and can't see your items 
 5. Users can add their favorite items is cart section 
 6. It has sort options for users so they can easily find out the prices of products
-7. I am working to watch to seeling and reviews products as well.
+7. I set dynamically review section where a products get reviews when users give that product review.

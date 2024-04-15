@@ -21,7 +21,7 @@ const NavBar = () => {
     const { user, logOut } = useContext(Context)
     const [userProfile, setUserProfile] = useState("hidden")
 
-    console.log(user);
+    // console.log(user);
 
 
     const handleInput = async (e) => {
