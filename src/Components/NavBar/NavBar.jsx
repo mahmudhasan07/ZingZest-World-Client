@@ -80,7 +80,7 @@ const NavBar = () => {
                         user ?
                             <div className="relative">
                                 <div onMouseEnter={() => setUserProfile("flex")} onMouseLeave={() => setUserProfile("hidden")} className="flex gap-1">
-                                    <img className="w-10  rounded-full object-cover" src={user?.photoURL} alt="" />
+                                    <img className="w-10 h-10  rounded-full object-cover" src={user?.photoURL} alt="" />
                                     <h1 className="my-auto">Hello,{user?.displayName}</h1>
                                 </div>
                                 <div onMouseEnter={() => setUserProfile("flex")} onMouseLeave={() => setUserProfile("hidden")} className={`z-50 absolute space-y-1 flex-col w-full text-center bg-white text-black p-2 top-10 rounded-2xl ${userProfile}`}>
