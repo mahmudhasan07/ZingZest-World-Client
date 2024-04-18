@@ -49,7 +49,7 @@ const NavBar = () => {
 
     return (
         <section className="border-b-2 border-black text-base font-semibold py-1 bg-blue-600 text-white">
-            <div className="flex flex-wrap pt-1 lg:justify-around  justify-center gap-5">
+            <div className="flex flex-wrap pt-1 lg:justify-around  md:justify-center  gap-5">
                 <div className="lg:hidden">
                     <Drawermodal></Drawermodal>
                 </div>
@@ -57,7 +57,7 @@ const NavBar = () => {
                     <NavLink to={'/'}><img className="w-60 text-white" src={logo} alt="" /></NavLink>
                 </div>
                 <div className="flex relative">
-                    <input ref={inputData} onChange={handleInput}  type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl w-80  text-black bg-white" />
+                    <input ref={inputData} onChange={handleInput} type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl w-80  text-black bg-white" />
                     <button onClick={handlesearch} className="text-2xl my-auto border-l-2 border-black text-black  end-1 absolute h-full px-1"><FaSearch className="" /></button>
                     <div id="seachscroll" className={`bg-white absolute h-96 overflow-auto top-12 w-full text-center p-3 rounded-lg z-50 text-black ${search}`}>
                         {
@@ -94,17 +94,17 @@ const NavBar = () => {
                             <NavLink to={'/login'}><button className="flex"><IoIosLogIn className="text-2xl"></IoIosLogIn>logIn</button></NavLink>
                     }
                 </div>
-                <div className="text-2xl my-auto">
+                <div className="text-2xl my-auto lg:ml-0 md:ml-0  ml-auto">
                     <button className="flex"><FaCartShopping /><span className="text-xl">Cart</span></button>
                 </div>
-                <div className="my-auto">
+                <div className="my-auto lg:mr-0 md:mr-0 mr-auto">
                     <NavLink to={`https://seller-zingzest.web.app`}><p>Become a seller</p></NavLink>
                 </div>
             </div>
             <div className="lg:block hidden">
-            <NavBarTitles></NavBarTitles>
+                <NavBarTitles></NavBarTitles>
             </div>
-            
+
         </section>
     );
 };

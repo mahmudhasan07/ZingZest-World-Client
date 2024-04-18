@@ -90,7 +90,7 @@ const ItemInfo = () => {
                             <div data-aos="fade-left"
                                 data-aos-offset="300"
                                 data-aos-delay={400}
-                                data-aos-easing="ease-in-sine" className=" my-auto space-y-2 ">
+                                data-aos-easing="ease-in-sine" className=" my-auto space-y-2 mx-5 ">
                                 <h1 className="text-3xl font-bold">{data.name}</h1>
                                 <p className="text-lg font-semibold">Brand: {data.brand}</p>
                                 <p className="text-lg font-semibold">Tk: {data.price}</p>

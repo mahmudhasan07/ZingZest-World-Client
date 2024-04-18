@@ -36,7 +36,7 @@ const Item = () => {
                     <option value="toprating">Top Rating</option>
                 </select>
             </div>
-            <div className="flex justify-start gap-8 mx-10">
+            <div className="flex lg:justify-start justify-center flex-wrap gap-8 mx-10">
                 {
                     data == "l" ?
                         "loading"

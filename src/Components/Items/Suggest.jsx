@@ -7,7 +7,7 @@ const Suggest = ({ card }) => {
     // console.log(data);
     return (
         <section className="overflow-hidden">
-            <h1 className="lg:text-2xl md:text-2xl text-lg font-semibold">Similar product that you are finding</h1>
+            <h1 className="lg:text-2xl md:text-2xl text-lg font-semibold lg:text-start text-center">Similar product that you are finding</h1>
             <div className=" flex flex-wrap gap-3   my-5">
                 {
                     data == "l" ?
