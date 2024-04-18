@@ -7,10 +7,12 @@ import TopRating from "./TopRating";
 
 
 const Home = () => {
+
+    
     return (
         <section>
             <div>
-                <ProductLoderView></ProductLoderView>
+                {/* <ProductLoderView></ProductLoderView> */}
             </div>
             <div>
                 <Banner></Banner>

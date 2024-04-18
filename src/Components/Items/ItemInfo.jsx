@@ -11,6 +11,7 @@ import 'aos/dist/aos.css';
 import { Rating, Star } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import ProductLoderView from "../Loader/ProductLoderView";
 
 
 const ItemInfo = () => {
@@ -26,7 +27,7 @@ const ItemInfo = () => {
         itemShapes: Star,
         activeFillColor: '#ffb700',
         inactiveFillColor: '#fbf1a9'
-      }
+    }
 
 
     useEffect(() => {
@@ -71,7 +72,7 @@ const ItemInfo = () => {
             <h1 className="text-3xl text-center font-bold my-10">Your product information</h1>
             {
                 data == "l" ?
-                    "loading"
+                    <ProductLoderView></ProductLoderView>
                     :
                     <section>
                         <div className="flex">
@@ -107,7 +108,7 @@ const ItemInfo = () => {
                                         ""
                                 }
                                 <p className="text-lg my-1 font-semibold">Quantity: <span onClick={handleQuantity} className="mx-1 text-xl cursor-pointer">-</span><span className="mx-2">{quantity}</span><span onClick={() => setquantity((pre) => pre + 1)} className="mx-1 text-xl cursor-pointer">+</span></p>
-                                <Rating style={{ maxWidth: 120 }} value={data?.review || 0} readOnly={true}  itemStyles={myStyles} />
+                                <Rating style={{ maxWidth: 120 }} value={data?.review || 0} readOnly={true} itemStyles={myStyles} />
                                 <div>
                                     <button onClick={handleBuy} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Buy</button>
                                     <button className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>
@@ -135,10 +136,10 @@ const ItemInfo = () => {
                     data-aos-delay={300}
                     data-aos-easing="ease-in-sine" className="lg:w-1/3">
                     {
-                        data == "l"?
-                        "loading" 
-                        :
-                        <Comment id={data._id} rating={data?.review} ></Comment>
+                        data == "l" ?
+                            "loading"
+                            :
+                            <Comment id={data._id} rating={data?.review} ></Comment>
                     }
                 </div>
                 {/* //! Suggest products section */}

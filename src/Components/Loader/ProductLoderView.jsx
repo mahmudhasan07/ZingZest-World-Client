@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ContentLoader from 'react-content-loader'
 
 const ProductLoderView = () => {
+
+    const [loaderWidth, setloaderWidth] = useState(1000);
+    useEffect(() => {
+
+        if (window.matchMedia('screen and (max-width: 770px)').matches) {
+            console.log("medium screen paise");
+            setloaderWidth(600)
+        }
+        if (window.matchMedia('screen and (max-width: 420px)').matches) {
+            console.log("coto secren paise");
+            setloaderWidth(400)
+        }
+        
+    }, []);
+
     return (
         <div className='border-2 mx-auto'>
             <ContentLoader
-                width={1000}
+                width={loaderWidth}
                 height={500}
                 viewBox="0 0 700 300"
                 backgroundColor="#f5f5f5"
                 foregroundColor="#dbdbdb"
                 className='mx-auto'
-                // {...props}
+            // {...props}
             >
                 <rect x="4" y="8" rx="3" ry="3" width="7" height="288" />
                 <rect x="6" y="289" rx="3" ry="3" width="669" height="8" />
