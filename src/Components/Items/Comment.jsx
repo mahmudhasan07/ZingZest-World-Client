@@ -21,13 +21,13 @@ const Comment = ({ id, rating }) => {
         itemShapes: Star,
         activeFillColor: '#ffb700',
         inactiveFillColor: '#fbf1a9'
-      }
+    }
 
 
-    const handleReview =(id)=>{
+    const handleReview = (id) => {
         console.log(id);
         setreview(id)
-        settotalReview((rating + id)/2 || id)
+        settotalReview((rating + id) / 2 || id)
     }
 
 
@@ -49,17 +49,17 @@ const Comment = ({ id, rating }) => {
                     icon: "success"
                 })
 
-                    console.log(review);
-                    // console.log(data);
-                    axiosLink.patch(`/items/${id}`, { totalReview })
-                        .then(res => {
-                            console.log(res);
-                        })
-                        .catch(error => {
-                            console.log(error);
-                        })
-                
-                
+                console.log(review);
+                // console.log(data);
+                axiosLink.patch(`/items/${id}`, { totalReview })
+                    .then(res => {
+                        console.log(res);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+
+
                 refetch()
 
             })
@@ -69,18 +69,21 @@ const Comment = ({ id, rating }) => {
     }
 
     return (
-        <section className='lg:ml-10 md:ml-5 ml-0'>
+        <section className='lg:mx-5 md:mx-10 mx-2'>
             <h1 className='text-2xl font-semibold'>Comment Section</h1>
             <div className=" my-10 border-2 p-2 space-y-2 rounded-2xl border-gray-500 ">
                 <p className="text-xl font-semibold">Enter your comment</p>
-                <textarea ref={commentData} className="border-2 border-gray-400 rounded-xl p-2" rows={"5"} cols={"50"}></textarea>
-                <div className='flex gap-3'>
+                <textarea ref={commentData} className="border-2 border-gray-400 rounded-xl p-2 w-full" rows={"5"} ></textarea>
+                <div className='flex flex-wrap gap-3'>
                     <p>Review</p>
-                    <button onClick={() => handleReview(5)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐5</button>
-                    <button onClick={() => handleReview(4)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐4</button>
-                    <button onClick={() => handleReview(3)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐3</button>
-                    <button onClick={() => handleReview(2)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐2</button>
-                    <button onClick={() => handleReview(1)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐1</button>
+                    <div className='gap-2 flex'>
+                        <button onClick={() => handleReview(5)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐5</button>
+                        <button onClick={() => handleReview(4)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐4</button>
+                        <button onClick={() => handleReview(3)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐3</button>
+                        <button onClick={() => handleReview(2)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐2</button>
+                        <button onClick={() => handleReview(1)} className='btn btn-sm focus:bg-blue-600 focus:text-white'>⭐1</button>
+
+                    </div>
                 </div>
                 <button onClick={handleComment} className="btn bg-blue-600 hover:bg-blue-600 text-white">Comment</button>
                 <div>
@@ -94,7 +97,7 @@ const Comment = ({ id, rating }) => {
                                     <div className='border-2 space-y-1 border-gray-500 p-2 rounded-2xl' key={idx}>
                                         <div className='flex justify-between'>
                                             <h1 className='text-lg font-semibold'>{element?.email}</h1>
-                                            <Rating style={{ maxWidth: 100 }} value={element?.review} readOnly={true}  itemStyles={myStyles} />
+                                            <Rating style={{ maxWidth: 100 }} value={element?.review} readOnly={true} itemStyles={myStyles} />
 
                                         </div>
                                         <p>{element?.comment}</p>

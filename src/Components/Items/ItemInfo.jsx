@@ -75,11 +75,11 @@ const ItemInfo = () => {
                     <ProductLoderView></ProductLoderView>
                     :
                     <section>
-                        <div className="flex">
+                        <div className="flex flex-wrap justify-center lg:gap-28 md:gap-5 gap-2">
                             <div data-aos="fade-right"
                                 data-aos-offset="300"
                                 data-aos-delay={300}
-                                data-aos-easing="ease-in-sine" className="flex-1 ">
+                                data-aos-easing="ease-in-sine" className=" ">
                                 <img className="w-80 mx-auto aspect-square object-contain" src={data.allImages[imgNum]} alt="" />
                                 <div className="flex justify-center overflow-auto my-5 gap-10">
                                     {
@@ -90,7 +90,7 @@ const ItemInfo = () => {
                             <div data-aos="fade-left"
                                 data-aos-offset="300"
                                 data-aos-delay={400}
-                                data-aos-easing="ease-in-sine" className=" my-auto space-y-2 flex-1">
+                                data-aos-easing="ease-in-sine" className=" my-auto space-y-2 ">
                                 <h1 className="text-3xl font-bold">{data.name}</h1>
                                 <p className="text-lg font-semibold">Brand: {data.brand}</p>
                                 <p className="text-lg font-semibold">Tk: {data.price}</p>
@@ -109,20 +109,20 @@ const ItemInfo = () => {
                                 }
                                 <p className="text-lg my-1 font-semibold">Quantity: <span onClick={handleQuantity} className="mx-1 text-xl cursor-pointer">-</span><span className="mx-2">{quantity}</span><span onClick={() => setquantity((pre) => pre + 1)} className="mx-1 text-xl cursor-pointer">+</span></p>
                                 <Rating style={{ maxWidth: 120 }} value={data?.review || 0} readOnly={true} itemStyles={myStyles} />
-                                <div>
+                                <div className="flex gap-3">
                                     <button onClick={handleBuy} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Buy</button>
                                     <button className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>
                                 </div>
                             </div>
                         </div>
-                        <div className="lg:ml-10 md:ml-5 ml-0 my-10">
+                        <div className="lg:mx-10 md:mx-5 mx-2 my-10">
                             <h1 className="text-2xl font-bold">Product Details</h1>
                             {
                                 data?.details.map((element, idx) =>
                                     <li data-aos="fade-right"
                                         data-aos-offset="300"
                                         data-aos-delay={(idx + 1) * 300}
-                                        data-aos-easing="ease-in-sine" className="text-lg" key={idx}>{element}</li>)
+                                        data-aos-easing="ease-in-sine" className="text-lg my-1" key={idx}>{element}</li>)
                             }
                         </div>
                     </section>
@@ -130,11 +130,11 @@ const ItemInfo = () => {
             }
 
             {/* //! Comment Section */}
-            <div className="flex flex-wrap border-gray-400">
+            <div className="flex flex-wrap overflow-hidden p-2 gap-10 border-gray-400">
                 <div data-aos="fade-right"
                     data-aos-offset="300"
                     data-aos-delay={300}
-                    data-aos-easing="ease-in-sine" className="lg:w-1/3">
+                    data-aos-easing="ease-in-sine" className="lg:w-1/3 p-2 bg-slate-100 w-full border-2 rounded-lg">
                     {
                         data == "l" ?
                             "loading"
@@ -146,7 +146,7 @@ const ItemInfo = () => {
                 <div data-aos="fade-left"
                     data-aos-offset="300"
                     data-aos-delay={400}
-                    data-aos-easing="ease-in-sine" className=" lg:w-1/2 mx-auto">{
+                    data-aos-easing="ease-in-sine" className="lg:w-1/2 bg-slate-100 border-2 rounded-lg w-full h-fit p-2 lg:mx-auto">{
                         data !== "l" ?
                             <Suggest card={data?.categoryType}></Suggest>
                             :
