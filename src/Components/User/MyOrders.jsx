@@ -6,19 +6,19 @@ const MyOrders = () => {
     const { user } = useContext(Context)
     const email = user?.email
     const [data, refetch] = useFetch("my-orders", email)
-    console.log(data.length);
+    console.log(data);
     return (
         <section>
             <h1 className="text-4xl text-center font-bold my-10">My Orders</h1>
-            <div className="lg:w-1/2  mx-auto">
+            <div className="lg:w-3/5  mx-auto">
                 {
                     data == "l" ?
                         "loading"
                         :
-                        data.length >0?
-                        "No orders yet!"
-                        :
-                        data.map((element, idx) => <Cards key={idx} card={element}></Cards>)
+                        data.length < 1 ?
+                            "No orders yet!"
+                            :
+                            data.map((element, idx) => <Cards key={idx} card={element}></Cards>)
                 }
             </div>
         </section>
@@ -27,7 +27,7 @@ const MyOrders = () => {
 
 const Cards = ({ card }) => {
     return (
-        <div className="flex w-full my-2 rounded-xl p-2 justify-between border-2">
+        <div className="flex w-full my-2 bg-slate-100 text-black text-lg font-semibold rounded-xl p-2 justify-between border-2">
             <div className="flex gap-10">
                 <img className="w-16" src={card.image} alt="" />
                 <div className="my-auto">
@@ -42,7 +42,7 @@ const Cards = ({ card }) => {
                 </div>
             </div>
             <div className="my-auto">
-                <h1><span>Status: </span><span className="border-2 bg-gray-100 rounded-xl">pending</span></h1>
+                <h1><span>Status: </span><span className="border-2 bg-white p-1 rounded-xl">pending</span></h1>
             </div>
         </div>
     )

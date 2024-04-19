@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import ContentLoader from 'react-content-loader'
+import { useEffect, useState } from "react";
+import ContentLoader from "react-content-loader";
 
-const ProductLoderView = () => {
+const ProductLoaderView = () => {
 
     const [loaderWidth, setloaderWidth] = useState(1000);
     useEffect(() => {
@@ -46,4 +46,4 @@ const ProductLoderView = () => {
     );
 };
 
-export default ProductLoderView;
+export default ProductLoaderView;

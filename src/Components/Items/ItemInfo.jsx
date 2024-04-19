@@ -11,7 +11,8 @@ import 'aos/dist/aos.css';
 import { Rating, Star } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
-import ProductLoderView from "../Loader/ProductLoderView";
+import ProductLoaderView from "../Loader/productLoaderView";
+// import ProductLoderView from "../Loader/ProductLoderView";
 
 
 const ItemInfo = () => {
@@ -72,7 +73,7 @@ const ItemInfo = () => {
             <h1 className="text-3xl text-center font-bold my-10">Your product information</h1>
             {
                 data == "l" ?
-                    <ProductLoderView></ProductLoderView>
+                    <ProductLoaderView></ProductLoaderView>
                     :
                     <section>
                         <div className="flex flex-wrap justify-center lg:gap-28 md:gap-5 gap-2">

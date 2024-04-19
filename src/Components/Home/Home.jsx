@@ -1,5 +1,5 @@
 import Banner from "../Banner/Banner";
-import ProductLoderView from "../Loader/ProductLoderView";
+import MyOrderLoader from "../Loader/MyOrderLoader";
 import Service from "../Service/Service";
 import Discount from "./Discount";
 import Parallaxbanner from "./ParallaxBanner";
@@ -11,14 +11,13 @@ const Home = () => {
     
     return (
         <section>
-            <div>
+            <div >
                 {/* <ProductLoderView></ProductLoderView> */}
+
+                <MyOrderLoader></MyOrderLoader>
             </div>
             <div>
                 <Banner></Banner>
-            </div>
-            <div>
-                <Service></Service>
             </div>
             <div>
                 <TopRating></TopRating>
@@ -28,6 +27,9 @@ const Home = () => {
             </div>
             <div>
                 <Discount></Discount>
+            </div>
+            <div>
+                <Service></Service>
             </div>
         </section>
     );
