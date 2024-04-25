@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import MyOrderLoader from "../Loader/MyOrderLoader";
+import ProductLoaderView from "../Loader/ProductLoaderView";
 import Service from "../Service/Service";
 import Discount from "./Discount";
 import Parallaxbanner from "./ParallaxBanner";
@@ -12,7 +13,7 @@ const Home = () => {
     return (
         <section>
             <div >
-                {/* <ProductLoderView></ProductLoderView> */}
+                {/* <ProductLoaderView></ProductLoaderView> */}
 
                 <MyOrderLoader></MyOrderLoader>
             </div>
