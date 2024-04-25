@@ -15,7 +15,7 @@ const Home = () => {
             <div >
                 {/* <ProductLoaderView></ProductLoaderView> */}
 
-                <MyOrderLoader></MyOrderLoader>
+                {/* <MyOrderLoader></MyOrderLoader> */}
             </div>
             <div>
                 <Banner></Banner>
