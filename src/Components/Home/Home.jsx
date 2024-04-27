@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import MyOrderLoader from "../Loader/MyOrderLoader";
+import ProductLoader from "../Loader/ProductLoader";
 import ProductLoaderView from "../Loader/ProductLoaderView";
 import Service from "../Service/Service";
 import Discount from "./Discount";
@@ -16,6 +17,7 @@ const Home = () => {
                 {/* <ProductLoaderView></ProductLoaderView> */}
 
                 {/* <MyOrderLoader></MyOrderLoader> */}
+                <ProductLoader></ProductLoader>
             </div>
             <div>
                 <Banner></Banner>

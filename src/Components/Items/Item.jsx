@@ -5,6 +5,7 @@ import AOS from "aos"
 import 'aos/dist/aos.css';
 import { } from "./Item.css";
 import { Rating, Star } from "@smastrom/react-rating";
+import ProductLoader from "../Loader/ProductLoader";
 
 const Item = () => {
     const id = useParams()
@@ -39,7 +40,7 @@ const Item = () => {
             <div className="flex lg:justify-start justify-center flex-wrap gap-8 mx-10">
                 {
                     data == "l" ?
-                        "loading"
+                        <ProductLoader></ProductLoader>
                         :
                         data == "A"?
                         "no data found"
