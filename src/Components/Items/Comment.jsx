@@ -88,20 +88,23 @@ const Comment = ({ id, rating }) => {
                 <button onClick={handleComment} className="btn bg-blue-600 hover:bg-blue-600 text-white">Comment</button>
                 <div>
                     <h1 className="text-xl font-semibold my-2">View other persons comment</h1>
-                    <div className="border-2 space-y-3 overflow-auto h-64">
+                    <div className="border-2 border-gray-700 rounded-2xl space-y-3 p-1 bg-white overflow-auto h-64">
                         {
                             data == "l" ?
                                 "loading"
                                 :
-                                data.map((element, idx) =>
-                                    <div className='border-2 space-y-1 border-gray-500 p-2 rounded-2xl' key={idx}>
-                                        <div className='flex justify-between'>
-                                            <h1 className='text-lg font-semibold'>{element?.email}</h1>
-                                            <Rating style={{ maxWidth: 100 }} value={element?.review} readOnly={true} itemStyles={myStyles} />
+                                data.length <1 ?
+                                    <p className='text-center font-semibold'>No comment yet</p>
+                                    :
+                                    data.map((element, idx) =>
+                                        <div className='border-2 space-y-1 border-gray-500 bg-gray-200 p-2 rounded-2xl' key={idx}>
+                                            <div className='flex justify-between'>
+                                                <h1 className='text-lg font-semibold'>{element?.email}</h1>
+                                                <Rating style={{ maxWidth: 100 }} value={element?.review} readOnly={true} itemStyles={myStyles} />
 
-                                        </div>
-                                        <p>{element?.comment}</p>
-                                    </div>)
+                                            </div>
+                                            <p>{element?.comment}</p>
+                                        </div>)
                         }
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Context } from "../ContextAPI/ContextAPI";
-import useFetch1 from "../Hooks/usefetch1";
+import useFetch1 from "../Hooks/useFetch1";
 import Modal from "./Modal";
 
 const MyProfile = () => {
@@ -8,7 +8,7 @@ const MyProfile = () => {
     const email = user?.email
     console.log(email);
     const [data, refetch] = useFetch1("client-users", user?.email)
-    const [modal, setModal] = useState()
+    // const [modal, setModal] = useState()
     console.log(data);
     return (
         <section className="my-10">

@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 import { Rating, Star } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
-import ProductLoaderView from "../Loader/productLoaderView";
+import ProductLoaderView from "../Loader/ProductLoaderView";
 // import ProductLoderView from "../Loader/ProductLoderView";
 
 
@@ -68,6 +68,16 @@ const ItemInfo = () => {
 
         }
     }
+
+    const handleCart =()=>{
+        if(data!="l"){
+            const name = data?.name
+            const brand = data.brand
+            const price = data.price
+            const image = data.allImages[0]
+            console.log(image);
+        }
+    }
     return (
         <section>
             <h1 className="text-3xl text-center font-bold my-10">Your product information</h1>
@@ -80,7 +90,7 @@ const ItemInfo = () => {
                             <div data-aos="fade-right"
                                 data-aos-offset="300"
                                 data-aos-delay={300}
-                                data-aos-easing="ease-in-sine" className=" ">
+                                data-aos-easing="ease-in-sine" className=" flex-1">
                                 <img className="w-80 mx-auto aspect-square object-contain" src={data.allImages[imgNum]} alt="" />
                                 <div className="flex justify-center overflow-auto my-5 gap-10">
                                     {
@@ -91,7 +101,7 @@ const ItemInfo = () => {
                             <div data-aos="fade-left"
                                 data-aos-offset="300"
                                 data-aos-delay={400}
-                                data-aos-easing="ease-in-sine" className=" my-auto space-y-2 mx-5 ">
+                                data-aos-easing="ease-in-sine" className=" flex-1 my-auto space-y-2 mx-5 ">
                                 <h1 className="text-3xl font-bold">{data.name}</h1>
                                 <p className="text-lg font-semibold">Brand: {data.brand}</p>
                                 <p className="text-lg font-semibold">Tk: {data.price}</p>
@@ -112,7 +122,7 @@ const ItemInfo = () => {
                                 <Rating style={{ maxWidth: 120 }} value={data?.review || 0} readOnly={true} itemStyles={myStyles} />
                                 <div className="flex gap-3">
                                     <button onClick={handleBuy} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Buy</button>
-                                    <button className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>
+                                    <button onClick={handleCart} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>
                                 </div>
                             </div>
                         </div>

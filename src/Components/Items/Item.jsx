@@ -63,7 +63,7 @@ const Cards = ({ card, id }) => {
         <div data-aos="fade-right"
             data-aos-offset="300"
             data-aos-delay={id * 250}
-            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-64 text-center space-y-1 card border-2 shadow-xl border-gray-300 p-2 rounded-2xl">
+            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-64 text-center space-y-1 card border-2 shadow-xl border-gray-300 p-2 bg-slate-200 rounded-2xl">
             <img className="w-56 h-48 mx-auto aspect-square py-1 object-contain  " src={card?.allImages[0]} alt="" />
             <h1 className="text-lg font-bold">{card?.name}</h1>
             {

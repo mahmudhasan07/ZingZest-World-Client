@@ -1,6 +1,7 @@
 import { Rating, Star } from "@smastrom/react-rating";
 import useFetch from "../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
+import ProductLoader from "../Loader/ProductLoader";
 
 const TopRating = () => {
     const [data, refetch] = useFetch("items", "toprating")
@@ -17,7 +18,8 @@ const TopRating = () => {
                 <div className="flex mx-5 justify-center gap-5 flex-wrap">
                     {
                         data == "l" ?
-                            "loading"
+                            <ProductLoader></ProductLoader>
+            
                             :
                             data.slice(0, 5).map((element, idx) => <Card key={idx} card={element}></Card>)
                     }

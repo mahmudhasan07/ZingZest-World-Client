@@ -4,6 +4,7 @@ import { Rating, Star } from "@smastrom/react-rating";
 import {  } from "./Discount.css";
 import { useState } from "react";
 import { set } from "react-hook-form";
+import ProductLoader from "../Loader/ProductLoader";
 
 
 const Discount = () => {
@@ -26,7 +27,7 @@ const Discount = () => {
             <div className="flex flex-wrap justify-center gap-10">
                 {
                     data == "l"?
-                    "loading"
+                    <ProductLoader></ProductLoader>
                     :
                     data.slice(0,5).map((element,idx)=><Card key={idx} card={element}></Card>)
                 }
