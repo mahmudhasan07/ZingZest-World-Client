@@ -18,7 +18,7 @@ const ProductLoaderView = () => {
     }, []);
 
     return (
-        <div className='border-2 mx-auto'>
+        <div className=' mx-auto'>
             <ContentLoader
                 width={loaderWidth}
                 height={500}

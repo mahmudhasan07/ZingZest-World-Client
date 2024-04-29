@@ -23,7 +23,7 @@ const ItemInfo = () => {
     const [quantity, setquantity] = useState(1)
     const { user } = useContext(Context)
     const axiosLink = useAxios(AxiosSource)
-    console.log(data);
+    // console.log(data);
     const myStyles = {
         itemShapes: Star,
         activeFillColor: '#ffb700',
@@ -48,7 +48,7 @@ const ItemInfo = () => {
             const color = data.color
             const categoryType = data.categoryType
             const size = pSize
-            const image = data.allImages[1]
+            const image = data.allImages[0]
             const idNumber = data._id
             const buyer = user?.email
             const buyProduct = { name, brand, price, color, size, idNumber, categoryType, image, quantity, buyer }
@@ -64,18 +64,46 @@ const ItemInfo = () => {
                 })
                 .catch(error => {
                     console.log(error);
+                    Swal.fire({
+                        title: "Unsuccessful",
+                        text: "Your product unsuccessfully to purchase",
+                        icon: "error"
+                    });
                 })
 
         }
     }
 
-    const handleCart =()=>{
-        if(data!="l"){
+    const handleCart = () => {
+        if (data != "l") {
             const name = data?.name
-            const brand = data.brand
-            const price = data.price
-            const image = data.allImages[0]
-            console.log(image);
+            const brand = data?.brand
+            const price = data?.price
+            const image = data?.allImages[0]
+            const productID = data?._id
+            const category = data?.category
+            const categoryType = data?.categoryType
+            const userID = user?.email
+            // console.log(image);
+            const cart = { name, brand, price, image, userID, productID, category, categoryType }
+            axiosLink.post("/carts", cart)
+                .then(res => {
+                    Swal.fire({
+                        title: "Added Cart Successful",
+                        text: "Your product successfully added to cart",
+                        icon: "success"
+                    });
+                })
+                .catch(err => {
+                    console.log(err);
+                    Swal.fire({
+                        title: "Unsuccessful",
+                        text: "Your product unsuccessfully added to cart",
+                        icon: "error"
+                    });
+                })
+
+
         }
     }
     return (

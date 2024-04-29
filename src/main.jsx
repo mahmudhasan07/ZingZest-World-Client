@@ -18,6 +18,7 @@ import ContextAPI from './Components/ContextAPI/ContextAPI.jsx'
 import MyProfile from './Components/User/MyProfile.jsx'
 import MyOrders from './Components/User/MyOrders.jsx'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import MyCart from './Components/User/MyCart.jsx'
 
 const queryClient = new QueryClient()
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path : '/my-orders',
         element : <MyOrders></MyOrders>
+      },
+      {
+        path : '/my-carts',
+        element : <MyCart></MyCart>
       }
     ]
   }

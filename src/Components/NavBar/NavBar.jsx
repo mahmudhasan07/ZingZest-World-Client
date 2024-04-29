@@ -95,7 +95,7 @@ const NavBar = () => {
                     }
                 </div>
                 <div className="text-2xl my-auto lg:ml-0 md:ml-0  ml-auto">
-                    <button className="flex"><FaCartShopping /><span className="text-xl">Cart</span></button>
+                    <button onClick={() => navigate("/my-carts")} className="flex"><FaCartShopping /><span className="text-xl">Cart</span></button>
                 </div>
                 <div className="my-auto lg:mr-0 md:mr-0 mr-auto">
                     <NavLink to={`https://seller-zingzest.web.app`}><p>Become a seller</p></NavLink>
