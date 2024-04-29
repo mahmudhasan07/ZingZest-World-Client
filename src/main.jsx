@@ -19,6 +19,7 @@ import MyProfile from './Components/User/MyProfile.jsx'
 import MyOrders from './Components/User/MyOrders.jsx'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import MyCart from './Components/User/MyCart.jsx'
+import PrivateRoute from './Components/Private/PrivateRoute.jsx'
 
 const queryClient = new QueryClient()
 
@@ -50,19 +51,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-profile",
-        element: <MyProfile></MyProfile>
+        element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
       },
       {
-        path : '/my-orders',
-        element : <MyOrders></MyOrders>
+        path: '/my-orders',
+        element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
       },
       {
-        path : '/my-carts',
-        element : <MyCart></MyCart>
+        path: '/my-carts',
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
       }
     ]
   }
 ])
+
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -70,7 +73,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <QueryClientProvider client={queryClient}>
         <ChakraProvider >
           <ParallaxProvider>
-          <RouterProvider router={router}></RouterProvider>
+            <RouterProvider router={router}>
+              <App></App>
+            </RouterProvider>
           </ParallaxProvider>
         </ChakraProvider>
       </QueryClientProvider>

@@ -3,7 +3,7 @@ import logo from "../../../public/logo (2).png"
 import { FaSearch } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./NavBar.css"
 import { IoIosLogIn } from "react-icons/io";
 import useFetch1 from "../Hooks/usefetch1";
@@ -19,9 +19,24 @@ const NavBar = () => {
     const axiosLink = useAxios(AxiosSource)
     const navigate = useNavigate()
     const { user, logOut } = useContext(Context)
+    const [length, setlength] = useState();
     const [userProfile, setUserProfile] = useState("hidden")
 
-    // console.log(user);
+    console.log(user);
+
+    useEffect(() => {
+        if (user?.email) {
+            const Data = async () => {
+                const data = await axiosLink.get(`/carts/${user?.email}`)
+                console.log(data.data);
+                setlength(data.data.length)
+            }
+            Data()
+        }
+        else{
+            setlength('')
+        }
+    }, [axiosLink, user]);
 
 
     const handleInput = async (e) => {
@@ -94,8 +109,14 @@ const NavBar = () => {
                             <NavLink to={'/login'}><button className="flex"><IoIosLogIn className="text-2xl"></IoIosLogIn>logIn</button></NavLink>
                     }
                 </div>
-                <div className="text-2xl my-auto lg:ml-0 md:ml-0  ml-auto">
+                <div className="text-2xl my-auto relative lg:ml-0 md:ml-0  ml-auto">
                     <button onClick={() => navigate("/my-carts")} className="flex"><FaCartShopping /><span className="text-xl">Cart</span></button>
+                    {
+                        length ?
+                        <p className="text-sm absolute -top-3 border bg-white text-blue-600  rounded-full w-5 h-5 pl-1  end-5">{length}</p>
+                        :
+                        ""
+                    }
                 </div>
                 <div className="my-auto lg:mr-0 md:mr-0 mr-auto">
                     <NavLink to={`https://seller-zingzest.web.app`}><p>Become a seller</p></NavLink>

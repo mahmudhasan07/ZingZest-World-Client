@@ -3,6 +3,7 @@ import MyOrderLoader from "../Loader/MyOrderLoader";
 import ProductLoader from "../Loader/ProductLoader";
 import ProductLoaderView from "../Loader/ProductLoaderView";
 import Service from "../Service/Service";
+import TopBrand from "../TopBrand/TopBrand";
 import Discount from "./Discount";
 import Parallaxbanner from "./ParallaxBanner";
 import TopRating from "./TopRating";
@@ -30,6 +31,9 @@ const Home = () => {
             </div>
             <div>
                 <Discount></Discount>
+            </div>
+            <div>
+                <TopBrand></TopBrand>
             </div>
             <div>
                 <Service></Service>
