@@ -39,7 +39,22 @@ const ItemInfo = () => {
         if (quantity > 1) { setquantity((pre) => pre - 1) }
     }
 
+    const deBounce = (fn, delay) => {
+        let timeOut;
+        // console.log("run hoy??");
+        // if (timeOut) {
+        //     console.log("clear hoy??");
+        // }
+        timeOut = setTimeout(() => {
+            console.log("cole");
+            
+            // fn()
+        }, 2000);
+    }
+
+
     const handleBuy = () => {
+        // console.log("order");
 
         if (data !== "l") {
             const name = data.name
@@ -73,6 +88,7 @@ const ItemInfo = () => {
 
         }
     }
+
 
     const handleCart = () => {
         if (data != "l") {
@@ -149,7 +165,7 @@ const ItemInfo = () => {
                                 <p className="text-lg my-1 font-semibold">Quantity: <span onClick={handleQuantity} className="mx-1 text-xl cursor-pointer">-</span><span className="mx-2">{quantity}</span><span onClick={() => setquantity((pre) => pre + 1)} className="mx-1 text-xl cursor-pointer">+</span></p>
                                 <Rating style={{ maxWidth: 120 }} value={data?.review || 0} readOnly={true} itemStyles={myStyles} />
                                 <div className="flex gap-3">
-                                    <button onClick={handleBuy} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Buy</button>
+                                    <button onClick={() => deBounce(handleBuy, 2000)} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Buy</button>
                                     <button onClick={handleCart} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>
                                 </div>
                             </div>
