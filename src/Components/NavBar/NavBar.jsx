@@ -22,7 +22,7 @@ const NavBar = () => {
     const [length, setlength] = useState();
     const [userProfile, setUserProfile] = useState("hidden")
 
-    console.log(user);
+    // console.log(user);
 
     useEffect(() => {
         if (user?.email) {
@@ -36,7 +36,7 @@ const NavBar = () => {
         else{
             setlength('')
         }
-    }, [axiosLink, user]);
+    }, [axiosLink, user?.email]);
 
 
     const handleInput = async (e) => {

@@ -39,18 +39,18 @@ const ItemInfo = () => {
         if (quantity > 1) { setquantity((pre) => pre - 1) }
     }
 
-    const deBounce = (fn, delay) => {
-        let timeOut;
+    let timeOut;
+    function deBounce(fn, delay) {
         // console.log("run hoy??");
-        // if (timeOut) {
-        //     console.log("clear hoy??");
-        // }
+        if (timeOut) {
+            clearTimeout(timeOut)
+            // console.log("clear korse");
+        }
         timeOut = setTimeout(() => {
-            console.log("cole");
-            
-            // fn()
-        }, 2000);
+            fn()
+        }, delay);
     }
+
 
 
     const handleBuy = () => {
@@ -66,8 +66,11 @@ const ItemInfo = () => {
             const image = data.allImages[0]
             const idNumber = data._id
             const buyer = user?.email
+            const totalQuantity = data?.quantity
             const buyProduct = { name, brand, price, color, size, idNumber, categoryType, image, quantity, buyer }
-            console.log(buyProduct);
+            const finalQuantity = totalQuantity - quantity
+            const updateItem = { finalQuantity, idNumber }
+            // console.log(buyProduct);
             axiosLink.post("/buy-items", buyProduct)
                 .then(res => {
                     Swal.fire({
@@ -75,6 +78,17 @@ const ItemInfo = () => {
                         text: "Your product successfully purchase",
                         icon: "success"
                     });
+
+
+
+                    axiosLink.patch('/updateItem', updateItem)
+                        .then(res => {
+                            console.log("update hoice");
+                        })
+                        .catch(err => {
+                            console.log("error paise");
+
+                        })
 
                 })
                 .catch(error => {
@@ -166,7 +180,7 @@ const ItemInfo = () => {
                                 <Rating style={{ maxWidth: 120 }} value={data?.review || 0} readOnly={true} itemStyles={myStyles} />
                                 <div className="flex gap-3">
                                     <button onClick={() => deBounce(handleBuy, 2000)} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Buy</button>
-                                    <button onClick={handleCart} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>
+                                    <button onClick={() => deBounce(handleCart, 2000)} className="btn bg-blue-600 hover:bg-blue-600 text-white text-lg">Add to cart</button>
                                 </div>
                             </div>
                         </div>
