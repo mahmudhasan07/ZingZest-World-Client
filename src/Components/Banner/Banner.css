@@ -3,6 +3,6 @@
     background-image: linear-gradient(rgb(60, 76, 180), rgb(44, 64, 194), rgb(63, 88, 200));
 }
 
-.swiper-slider > img{
-border-radius: 30px;
+.swiper-slider>img {
+    border-radius: 30px;
 }

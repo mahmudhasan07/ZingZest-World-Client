@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
-import useFetch1 from '../Hooks/usefetch1';
+import useFetch1 from '../Hooks/useFetch1';
 import { Context } from '../ContextAPI/ContextAPI';
 import { useNavigate } from 'react-router-dom';
+import noOrder from "../../../public/noOrder.json"
+import Lottie from "lottie-react";
 // import useFetch1 from '../Hooks/useFetch1';
 
 const MyCart = () => {
@@ -19,7 +21,9 @@ const MyCart = () => {
                         "loading"
                         :
                         data.length < 1 ?
-                            "No Product to Your Cart "
+                            <div>
+                                <h1 className=''>No Product to Your Cart </h1>
+                            </div>
                             :
                             data.map((item, idx) => <Card key={idx} item={item} id={idx}></Card>)
                 }
@@ -41,9 +45,9 @@ const Card = ({ item, id }) => {
             </div>
 
             <div className='my-auto flex-1 cursor-pointer' onClick={() => navigate(`/${item?.category}/${item?.categoryType}/${item?.productID}`)}>
-                <h1 className='text-lg font-semibold'>{item.name}</h1>
-                <h1 className='text-lg font-semibold'>{item.brand}</h1>
-                <h1 className='text-lg font-semibold'>{item.price}</h1>
+                <h1 className='text-lg font-semibold'>{item?.name}</h1>
+                <h1 className='text-lg font-semibold'>{item?.brand}</h1>
+                <h1 className='text-lg font-semibold'>{item?.price}</h1>
             </div>
 
         </div>
