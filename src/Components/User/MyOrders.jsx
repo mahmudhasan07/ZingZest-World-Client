@@ -3,7 +3,7 @@ import { Context } from "../ContextAPI/ContextAPI";
 import useFetch from "../Hooks/useFetch";
 import MyOrderLoader from "../Loader/MyOrderLoader";
 import noOrder from "../../../public/noOrder.json";
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 
 
 const MyOrders = () => {
@@ -22,7 +22,7 @@ const MyOrders = () => {
                         data.length < 1 ?
                             <div className="my-5">
                                 <h1 className="text-2xl font-bold text-center ">Oops, No orders yet!</h1>
-                                <Lottie options={{ animationData: noOrder }} height={400} ></Lottie>
+                                <Lottie animationData={noOrder} ></Lottie>
                             </div>
                             :
                             data.map((element, idx) => <Cards key={idx} card={element}></Cards>)

@@ -3,7 +3,7 @@ import useFetch1 from '../Hooks/useFetch1';
 import { Context } from '../ContextAPI/ContextAPI';
 import { useNavigate } from 'react-router-dom';
 import noOrder from "../../../public/noOrder.json"
-import Lottie from "lottie-react";
+// import Lottie from "lottie-react";
 // import useFetch1 from '../Hooks/useFetch1';
 
 const MyCart = () => {
@@ -24,6 +24,7 @@ const MyCart = () => {
                             <div>
                                 <h1 className=''>No Product to Your Cart </h1>
                             </div>
+                            // <Lottie animationData={noOrder}></Lottie>
                             :
                             data.map((item, idx) => <Card key={idx} item={item} id={idx}></Card>)
                 }

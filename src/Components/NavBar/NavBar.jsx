@@ -6,7 +6,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { useContext, useEffect, useRef, useState } from "react";
 import "./NavBar.css"
 import { IoIosLogIn } from "react-icons/io";
-import useFetch1 from "../Hooks/usefetch1";
+import useFetch1 from "../Hooks/useFetch1";
 import useAxios, { AxiosSource } from "../Axios/useAxios";
 import { Context } from "../ContextAPI/ContextAPI";
 import NavBarTitles from "./NavBarTitles";

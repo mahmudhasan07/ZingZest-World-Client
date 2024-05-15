@@ -6,7 +6,7 @@ import useFetch from '../Hooks/useFetch';
 import { Rating, Star } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
-import useFetch1 from '../Hooks/usefetch1';
+import useFetch1 from '../Hooks/useFetch1';
 
 const Comment = ({ id, rating }) => {
     const commentData = useRef()

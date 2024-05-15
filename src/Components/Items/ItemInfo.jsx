@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useFetch1 from "../Hooks/usefetch1";
+import useFetch1 from "../Hooks/useFetch1";
 import { useContext, useEffect, useState } from "react";
 import useAxios, { AxiosSource } from "../Axios/useAxios";
 import Swal from 'sweetalert2'

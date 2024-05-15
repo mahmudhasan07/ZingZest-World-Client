@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import useFetch1 from "../Hooks/usefetch1";
+import useFetch1 from "../Hooks/useFetch1";
 
 
 const Suggest = ({ card }) => {
