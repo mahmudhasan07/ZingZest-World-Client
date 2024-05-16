@@ -2,7 +2,8 @@ import { Rating, Star } from "@smastrom/react-rating";
 import useFetch from "../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 import ProductLoader from "../Loader/ProductLoader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AOS from "aos"
 
 const TopRating = () => {
     const [data, refetch] = useFetch("items", "toprating")
@@ -22,7 +23,7 @@ const TopRating = () => {
                             <ProductLoader></ProductLoader>
 
                             :
-                            data.slice(0, 5).map((element, idx) => <Card key={idx} card={element}></Card>)
+                            data.slice(0, 5).map((element, idx) => <Card key={idx} id={idx} card={element}></Card>)
                     }
                 </div>
             </div>
@@ -30,14 +31,22 @@ const TopRating = () => {
     );
 };
 
-const Card = ({ card }) => {
+const Card = ({ card, id }) => {
     const navigate = useNavigate()
     const [scale, setscale] = useState("scale-100");
+    useEffect(() => {
+        AOS.init()
+    }, []);
     return (
-        <div onMouseEnter={()=> setscale("scale-105")} onMouseLeave={()=>setscale("scale-100")} onClick={() => navigate(`/${card.category}/${card.categoryType}/${card._id}`)} className="card bg-slate-100 text-center cursor-pointer w-64 border-2 border-gray-400 p-2">
-            <img src={card?.allImages[0]} className={`w-60 my-1 h-64 transition-all  mx-auto rounded-2xl object-cover object-top ${scale}`} alt="" />
-            <h1 className="text-lg font-bold  mt-auto">{card.name}</h1>
+        <div
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-delay={id * 250}
+            data-aos-easing="ease-in-sine"
+            onMouseEnter={() => setscale("scale-105")} onMouseLeave={() => setscale("scale-100")} onClick={() => navigate(`/${card.category}/${card.categoryType}/${card._id}`)} className="card bg-slate-100 text-center cursor-pointer w-64 border-2 border-gray-400 p-2">
+            <img src={card?.allImages[0]} className={` my-1 h-52 transition-all  mx-auto rounded-2xl object-cover ${scale}`} alt="" />
             <div className="mt-auto">
+            <h1 className="text-lg font-bold  mt-auto">{card.name}</h1>
                 <Rating className="mx-auto" style={{ maxWidth: 100 }} value={card?.review} readOnly={true} itemStyles={{ itemShapes: Star, activeFillColor: '#ffb700', inactiveFillColor: '#fbf1a9' }} />
                 <h1 className="font-semibold">TK. {card.price}</h1>
             </div>

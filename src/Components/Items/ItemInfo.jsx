@@ -144,16 +144,18 @@ const ItemInfo = () => {
                     <ProductLoaderView></ProductLoaderView>
                     :
                     <section>
-                        <div className="flex flex-wrap justify-center lg:gap-28 md:gap-5 gap-2">
+                        <div className="flex flex-wrap justify-around ">
                             <div data-aos="fade-right"
                                 data-aos-offset="300"
                                 data-aos-delay={300}
                                 data-aos-easing="ease-in-sine" className=" flex-1">
-                                <img className="w-80 mx-auto aspect-square object-contain" src={data.allImages[imgNum]} alt="" />
-                                <div className="flex justify-center overflow-auto my-5 gap-10">
-                                    {
-                                        data?.allImages.map((element, idx) => <img onClick={() => setimgNum(idx)} className="w-20 h-16 object-contain" key={idx} src={element}></img>)
-                                    }
+                                <div className="bg-slate-100 w-10/12 mx-auto p-2 rounded-xl">
+                                    <img className="w-80 mx-auto aspect-square rounded-2xl object-contain" src={data.allImages[imgNum]} alt="" />
+                                    <div className="flex justify-center overflow-auto my-5 gap-10">
+                                        {
+                                            data?.allImages.map((element, idx) => <img onClick={() => setimgNum(idx)} className="w-20 h-16 object-contain" key={idx} src={element}></img>)
+                                        }
+                                    </div>
                                 </div>
                             </div>
                             <div data-aos="fade-left"

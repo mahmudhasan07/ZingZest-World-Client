@@ -30,7 +30,7 @@ const Item = () => {
     return (
 
         <section className="my-10">
-            <h1 className="text-3xl font-semibold text-center">Your {id?.id} items</h1>
+            <h1 className="text-4xl font-bold text-center">Your {id?.id} items</h1>
             <div className="flex justify-end mb-5 mr-10">
                 <select onChange={handleSort} ref={sort} className="border-2 p-1 text-lg border-gray-400 rounded-xl w-40" id="">
                     <option value="default">Default</option>
@@ -39,7 +39,7 @@ const Item = () => {
                     <option value="toprating">Top Rating</option>
                 </select>
             </div>
-            <div className="flex lg:justify-start justify-center flex-wrap gap-8 mx-10">
+            <div className="flex lg:justify-start justify-center flex-wrap my-5 gap-8 mx-10">
                 {
                     data == "l" ?
                         <ProductLoader></ProductLoader>
@@ -67,8 +67,9 @@ const Cards = ({ card, id }) => {
         <div data-aos="fade-right"
             data-aos-offset="300"
             data-aos-delay={id * 250}
-            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-64 text-center space-y-1 card border-2 shadow-xl border-gray-300 p-2 bg-slate-200 rounded-2xl">
-            <img className="w-56 h-48 mx-auto aspect-square py-1 object-contain  " src={card?.allImages[0]} alt="" />
+            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-64 text-center card border-2 shadow-2xl border-gray-400 p-2 bg-slate-200 rounded-2xl">
+            <img className=" h-52 my-1 mx-auto rounded-2xl py-1 object-cover " src={card?.allImages[0]} alt="" />
+            <div className="my-auto ">
             <h1 className="text-lg font-bold">{card?.name}</h1>
             {
                 card?.review ?
@@ -77,6 +78,7 @@ const Cards = ({ card, id }) => {
                     ""
             }
             <p className="font-semibold">TK. {card?.price}</p>
+            </div>
         </div>
     )
 }

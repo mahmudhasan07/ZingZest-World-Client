@@ -1,3 +1,9 @@
 #card{
     cursor: pointer;
+    /* transition: all .5s; */
+}
+
+#card:hover{
+    transform: scale(1.08);
+    transition: all .5s;
 }
