@@ -38,9 +38,10 @@ const Discount = () => {
 
 const Card = ({card})=>{
     const navigate = useNavigate()
+    const [scale, setscale] = useState("scale-100");
     return(
-        <div onClick={()=> navigate(`/${card.category}/${card.categoryType}/${card._id}`)} className="card text-center cursor-pointer w-64 border-2 border-gray-400 p-1">
-            <img src={card?.allImages[0]} className="w-52 aspect-square object-contain" alt="" />
+        <div onMouseEnter={()=> setscale("scale-105")} onMouseLeave={()=>setscale("scale-100")} onClick={()=> navigate(`/${card.category}/${card.categoryType}/${card._id}`)} className="card text-center cursor-pointer bg-slate-100 w-64 border-2 border-gray-400 p-1">
+            <img src={card?.allImages[0]} className={`w-60 my-1 h-64  mx-auto rounded-2xl object-cover object-top ${scale}`} alt="" />
             <h1 className="text-lg font-semibold">{card.name}</h1> 
             <div className="mt-auto">
             <Rating className="mx-auto" style={{ maxWidth: 100 }} value={card?.review || 0} readOnly={true} itemStyles={{itemShapes: Star, activeFillColor: '#ffb700',inactiveFillColor: '#fbf1a9'}} />

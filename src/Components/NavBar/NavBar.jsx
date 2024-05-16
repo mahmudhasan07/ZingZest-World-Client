@@ -63,7 +63,7 @@ const NavBar = () => {
     }
 
     return (
-        <section className="border-b-2 border-black text-base py-1 font-semibold bg-blue-600 text-white">
+        <section className="border-b-2 border-black text-base py-3 font-semibold bg-[#284098] text-white">
             <div className="flex justify-around ">
 
                 <div className="flex">
@@ -103,7 +103,7 @@ const NavBar = () => {
                                 user ?
                                     <div className="relative">
                                         <div onMouseEnter={() => setUserProfile("flex")} onMouseLeave={() => setUserProfile("hidden")} className="flex gap-1">
-                                            <img className="w-9 h-9  rounded-full object-cover" src={user?.photoURL} alt="" />
+                                            <img className="w-9 h-9  rounded-full object-cover object-top" src={user?.photoURL} alt="" />
                                             <h1 className="my-auto">Hello,{user?.displayName}</h1>
                                         </div>
                                         <div onMouseEnter={() => setUserProfile("flex")} onMouseLeave={() => setUserProfile("hidden")} className={`z-50 absolute space-y-1 flex-col w-full text-center bg-white text-black p-2 top-9 rounded-2xl ${userProfile}`}>

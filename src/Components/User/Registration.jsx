@@ -100,7 +100,7 @@ const Registration = () => {
                         </div>
                         <div className='text-end font-bold text-blue-700'>
                         </div>
-                        <button className='btn bg-blue-600 hover:bg-blue-600 text-white text-lg'>LogIn</button>
+                        <button className='btn bg-blue-600 hover:bg-blue-600 text-white text-lg'>Registration</button>
                     </form>
                 </div>
                 <div id='registrationBanner' className='px-3 w-1/2 text-white'>

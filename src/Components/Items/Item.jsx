@@ -6,6 +6,8 @@ import 'aos/dist/aos.css';
 import { } from "./Item.css";
 import { Rating, Star } from "@smastrom/react-rating";
 import ProductLoader from "../Loader/ProductLoader";
+import noProduct from "../../../public/noProduct.json"
+import Lottie from "lottie-react";
 
 const Item = () => {
     const id = useParams()
@@ -22,7 +24,7 @@ const Item = () => {
         const sortValue = sort.current.value
 
         setSortData(sortValue)
-        console.log(sortValue);
+        // console.log(sortValue);
 
     }
     return (
@@ -42,10 +44,12 @@ const Item = () => {
                     data == "l" ?
                         <ProductLoader></ProductLoader>
                         :
-                        data == "A"?
-                        "no data found"
-                        :
-                        data.map((element, idx) => <Cards key={idx} id={idx + 1} card={element}></Cards>)
+                        data.length < 1 ?
+                            <div className=" mx-auto bg-slate-100 rounded-3xl">
+                                <Lottie animationData={noProduct} className="w-80 mx-auto"></Lottie>
+                            </div>
+                            :
+                            data.map((element, idx) => <Cards key={idx} id={idx + 1} card={element}></Cards>)
                 }
             </div>
         </section>
