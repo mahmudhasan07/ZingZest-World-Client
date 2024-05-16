@@ -22,11 +22,12 @@
 #seachscroll::-webkit-scrollbar {
     width: 10px;
     background-color: white;
+    border: 2px solid;
     border-radius: 30px;
 }
 
 #seachscroll::-webkit-scrollbar-thumb {
-    background-color: rgba(46, 81, 239, 0.875);
+    background-color: rgba(9, 36, 159, 0.875);
     border-radius: 10px;
 }
 

@@ -62,8 +62,12 @@ const NavBar = () => {
         setSearch("hidden")
     }
 
+    // const handleSearchProduct =()=>{
+
+    // }
+
     return (
-        <section className="border-b-2 border-black text-base py-3 font-semibold bg-[#284098] text-white">
+        <section className="border-b-2 border-black text-base py-1 font-semibold bg-[#284098] text-white">
             <div className="flex justify-around ">
 
                 <div className="flex">
@@ -76,18 +80,18 @@ const NavBar = () => {
                     </div>
                 </div>
 
-                <div className=" w-9/12">
+                <div className="w-9/12 space-y-4">
                     <div className="flex flex-wrap pt-1 lg:justify-around  md:justify-center  gap-5">
                         <div className=" h-fit my-auto relative">
-                            <input ref={inputData} onChange={handleInput} type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl w-80  text-black bg-white" />
+                            <input ref={inputData} onChange={handleInput} type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl w-96  text-black bg-white" />
                             <button onClick={handlesearch} className="text-2xl my-auto border-l-2 border-black text-black  end-1 absolute h-full px-1"><FaSearch className="" /></button>
-                            <div id="seachscroll" className={`bg-white absolute h-96 overflow-auto top-12 w-full text-center p-3 rounded-lg z-50 text-black ${search}`}>
+                            <div id="seachscroll" className={`bg-white absolute h-96 overflow-auto border-2 border-gray-400 top-12 w-full text-center p-3 rounded-lg z-50 text-black ${search}`}>
                                 {
                                     array.length > 0 ?
                                         array?.map((element, idx) =>
-                                            <div id="searchCard" key={idx} className="border-2 border-gray-300 flex mb-2 rounded-xl">
-                                                <img className="w-28 h-20 my-auto object-contain" src={element.allImages[0]} alt="" />
-                                                <div className="my-auto text-start">
+                                            <div id="searchCard" onClick={()=> navigate(`/${element.category}/${element.categoryType}/${element._id}`) & setSearch("hidden")} key={idx} className="border-2 p-1 border-gray-300 flex justify-around cursor-pointer gap-5 mb-2 rounded-xl">
+                                                <img className="w-28 h-20 rounded-xl my-auto border-2 flex-1 object-contain" src={element.allImages[0]} alt="" />
+                                                <div className="my-auto flex-1 text-start">
                                                     <h1>{element.name}</h1>
                                                     <p>{element.price} Tk</p>
                                                 </div>
@@ -130,6 +134,7 @@ const NavBar = () => {
                             <NavLink to={`https://seller-zingzest.web.app`}><p>Become a seller</p></NavLink>
                         </div>
                     </div>
+
                     <div className="lg:block hidden">
                         <NavBarTitles></NavBarTitles>
                     </div>

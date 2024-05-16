@@ -4,6 +4,7 @@ import { Context } from '../ContextAPI/ContextAPI';
 import { useNavigate } from 'react-router-dom';
 import noOrder from "../../../public/noOrder.json"
 import Lottie from 'lottie-react';
+import userLoader from "../../../public/userloading.json"
 // import Lottie from "lottie-react";
 // import useFetch1 from '../Hooks/useFetch1';
 
@@ -19,7 +20,7 @@ const MyCart = () => {
 
                 {
                     data == "l" ?
-                        "loading"
+                        <Lottie animationData={userLoader} className='w-96 my-12 mx-auto'></Lottie>
                         :
                         data.length < 1 ?
                             <Lottie animationData={noOrder} className='w-96 mx-auto'></Lottie>

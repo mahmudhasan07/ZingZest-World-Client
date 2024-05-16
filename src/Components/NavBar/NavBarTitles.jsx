@@ -7,7 +7,7 @@ const NavBarTitles = () => {
     const [hide2, sethide2] = useState("hidden")
     const [hide3, sethide3] = useState("hidden")
     return (
-        <div className="flex justify-center mt-2 font-semibold gap-5">
+        <div className="flex justify-center font-semibold gap-5">
             <div className="type text-lg  relative">
                 <button onMouseEnter={() => sethide('flex')} onMouseLeave={() => sethide('hidden')}>Fashion & Clothing</button>
                 <div onMouseEnter={() => sethide('flex')} onMouseLeave={() => sethide('hidden')} className={`z-50 type-under ${hide} flex-col absolute left-0   `}>
