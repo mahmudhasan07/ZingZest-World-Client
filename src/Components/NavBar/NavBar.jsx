@@ -24,19 +24,29 @@ const NavBar = () => {
 
     // console.log(user);
 
+    // useEffect(() => {
+    //     if (user?.email) {
+    //         const Data = async () => {
+    //             const data = await axiosLink.get(`/carts/${user?.email}`)
+    //             console.log(data.data);
+    //             setlength(data.data.length)
+    //         }
+    //         Data()
+    //     }
+    //     else {
+    //         setlength('')
+    //     }
+    // }, [axiosLink, user?.email]);
+
+    const [data, refetch] = useFetch1("carts", user?.email)
     useEffect(() => {
-        if (user?.email) {
-            const Data = async () => {
-                const data = await axiosLink.get(`/carts/${user?.email}`)
-                console.log(data.data);
-                setlength(data.data.length)
-            }
-            Data()
+        if (data == "l") {
+            return
         }
         else {
-            setlength('')
+            setlength(data.length)
         }
-    }, [axiosLink, user?.email]);
+    }, [data]);
 
 
     const handleInput = async (e) => {
@@ -89,7 +99,7 @@ const NavBar = () => {
                                 {
                                     array.length > 0 ?
                                         array?.map((element, idx) =>
-                                            <div id="searchCard" onClick={()=> navigate(`/${element.category}/${element.categoryType}/${element._id}`) & setSearch("hidden")} key={idx} className="border-2 p-1 border-gray-300 flex justify-around cursor-pointer gap-5 mb-2 rounded-xl">
+                                            <div id="searchCard" onClick={() => navigate(`/${element.category}/${element.categoryType}/${element._id}`) & setSearch("hidden")} key={idx} className="border-2 p-1 border-gray-300 flex justify-around cursor-pointer gap-5 mb-2 rounded-xl">
                                                 <img className="w-28 h-20 rounded-xl my-auto border-2 flex-1 object-contain" src={element.allImages[0]} alt="" />
                                                 <div className="my-auto flex-1 text-start">
                                                     <h1>{element.name}</h1>

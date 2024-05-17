@@ -7,12 +7,14 @@ import Lottie from 'lottie-react';
 import userLoader from "../../../public/userloading.json"
 // import Lottie from "lottie-react";
 // import useFetch1 from '../Hooks/useFetch1';
+import { MdDeleteForever } from "react-icons/md";
+import useAxios, { AxiosSource } from '../Axios/useAxios';
 
 const MyCart = () => {
     const { user } = useContext(Context)
     // console.log(user);
     const [data, refetch] = useFetch1("carts", user?.email)
-    console.log(data);
+    // console.log(data);
     return (
         <section className='my-5'>
             <h1 className='text-3xl font-semibold text-center my-6'>My Cart Products</h1>
@@ -36,6 +38,17 @@ const MyCart = () => {
 const Card = ({ item, id }) => {
 
     const navigate = useNavigate()
+    const axiosLink= useAxios(AxiosSource)
+
+    const handleDelete =()=>{
+        axiosLink.delete("/delete-cart", {id: item._id})
+        .then(res=>{
+            console.log(res);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
 
     return (
         <div className='border-2 border-gray-400 bg-gray-200 p-2 flex justify-around w-2/5 mx-auto rounded-2xl '>
@@ -48,6 +61,9 @@ const Card = ({ item, id }) => {
                 <h1 className='text-lg font-semibold'>{item?.name}</h1>
                 <h1 className='text-lg font-semibold'>{item?.brand}</h1>
                 <h1 className='text-lg font-semibold'>{item?.price}</h1>
+            </div>
+            <div className='my-auto'>
+                <button onClick={handleDelete} className='btn'><MdDeleteForever className='text-2xl'></MdDeleteForever> Delete</button>
             </div>
 
         </div>

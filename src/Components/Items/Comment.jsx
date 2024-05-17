@@ -41,7 +41,8 @@ const Comment = ({ id, rating }) => {
 
         console.log(review);
         console.log(totalReview);
-        axiosLink.post("/comments", data)
+        if(user?.email){
+            axiosLink.post("/comments", data)
             .then(res => {
                 Swal.fire({
                     title: "Comment Successful",
@@ -66,6 +67,14 @@ const Comment = ({ id, rating }) => {
             .catch(error => {
                 console.log(error);
             })
+        }
+        else{
+            Swal.fire({
+                title: "Don't have logIn",
+                text: "You don't have logIn yet",
+                icon: "warning"
+            })
+        }
     }
 
     return (

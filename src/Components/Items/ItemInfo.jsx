@@ -23,6 +23,7 @@ const ItemInfo = () => {
     const [quantity, setquantity] = useState(1)
     const { user } = useContext(Context)
     const axiosLink = useAxios(AxiosSource)
+    const [data1, refetch1] = useFetch1("carts", user?.email)
     // console.log(data);
     const myStyles = {
         itemShapes: Star,
@@ -53,6 +54,7 @@ const ItemInfo = () => {
 
 
 
+
     const handleBuy = () => {
         // console.log("order");
 
@@ -71,34 +73,43 @@ const ItemInfo = () => {
             const finalQuantity = totalQuantity - quantity
             const updateItem = { finalQuantity, idNumber }
             // console.log(buyProduct);
-            axiosLink.post("/buy-items", buyProduct)
-                .then(res => {
-                    Swal.fire({
-                        title: "Purchase Successful",
-                        text: "Your product successfully purchase",
-                        icon: "success"
-                    });
+            if (user?.email) {
+                axiosLink.post("/buy-items", buyProduct)
+                    .then(res => {
+                        Swal.fire({
+                            title: "Purchase Successful",
+                            text: "Your product successfully purchase",
+                            icon: "success"
+                        });
 
 
 
-                    axiosLink.patch('/updateItem', updateItem)
-                        .then(res => {
-                            console.log("update hoice");
-                        })
-                        .catch(err => {
-                            console.log("error paise");
+                        axiosLink.patch('/updateItem', updateItem)
+                            .then(res => {
+                                // console.log("update hoice");
+                            })
+                            .catch(err => {
+                                // console.log("error paise");
 
-                        })
+                            })
 
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        Swal.fire({
+                            title: "Unsuccessful",
+                            text: "Your product unsuccessfully to purchase",
+                            icon: "error"
+                        });
+                    })
+            }
+            else {
+                Swal.fire({
+                    title: "Don't have logIn",
+                    text: "You don't have logIn yet",
+                    icon: "warning"
                 })
-                .catch(error => {
-                    console.log(error);
-                    Swal.fire({
-                        title: "Unsuccessful",
-                        text: "Your product unsuccessfully to purchase",
-                        icon: "error"
-                    });
-                })
+            }
 
         }
     }
@@ -116,22 +127,32 @@ const ItemInfo = () => {
             const userID = user?.email
             // console.log(image);
             const cart = { name, brand, price, image, userID, productID, category, categoryType }
-            axiosLink.post("/carts", cart)
-                .then(res => {
-                    Swal.fire({
-                        title: "Added Cart Successful",
-                        text: "Your product successfully added to cart",
-                        icon: "success"
-                    });
+            if (user?.email) {
+                axiosLink.post("/carts", cart)
+                    .then(res => {
+                        Swal.fire({
+                            title: "Added Cart Successful",
+                            text: "Your product successfully added to cart",
+                            icon: "success"
+                        });
+                        refetch1()
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        Swal.fire({
+                            title: "Unsuccessful",
+                            text: "Your product unsuccessfully added to cart",
+                            icon: "error"
+                        });
+                    })
+            }
+            else {
+                Swal.fire({
+                    title: "Don't have logIn",
+                    text: "You don't have logIn yet",
+                    icon: "warning"
                 })
-                .catch(err => {
-                    console.log(err);
-                    Swal.fire({
-                        title: "Unsuccessful",
-                        text: "Your product unsuccessfully added to cart",
-                        icon: "error"
-                    });
-                })
+            }
 
 
         }
