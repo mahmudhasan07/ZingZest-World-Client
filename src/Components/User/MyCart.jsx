@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useFetch1 from '../Hooks/useFetch1';
-import { Context } from '../ContextAPI/ContextAPI';
+import ContextAPI, { Context } from '../ContextAPI/ContextAPI';
 import { useNavigate } from 'react-router-dom';
 import noOrder from "../../../public/noOrder.json"
 import Lottie from 'lottie-react';
@@ -9,16 +9,31 @@ import userLoader from "../../../public/userloading.json"
 // import useFetch1 from '../Hooks/useFetch1';
 import { MdDeleteForever } from "react-icons/md";
 import useAxios, { AxiosSource } from '../Axios/useAxios';
+import Swal from 'sweetalert2';
 
 const MyCart = () => {
     const { user } = useContext(Context)
+    const [margin, setmargin] = useState("my-10");
     // console.log(user);
     const [data, refetch] = useFetch1("carts", user?.email)
     // console.log(data);
+    useEffect(() => {
+
+        if (data == "l") {
+            return
+        } else {
+            if (data?.length < 3) {
+                setmargin("my-24")
+            }
+            else {
+                setmargin('my-10')
+            }
+        }
+    }, [data]);
     return (
         <section className='my-5'>
             <h1 className='text-3xl font-semibold text-center my-6'>My Cart Products</h1>
-            <div className='space-y-3'>
+            <div className={`space-y-3 my-10 ${margin}`}>
 
                 {
                     data == "l" ?
@@ -38,16 +53,29 @@ const MyCart = () => {
 const Card = ({ item, id }) => {
 
     const navigate = useNavigate()
-    const axiosLink= useAxios(AxiosSource)
+    const axiosLink = useAxios(AxiosSource)
+    const { user } = useContext(Context)
 
-    const handleDelete =()=>{
-        axiosLink.delete("/delete-cart", {id: item._id})
-        .then(res=>{
-            console.log(res);
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+    const ID = item?._id
+    const [data, refetch] = useFetch1("carts", user?.email)
+
+    // const cartID = {ID}
+
+    const handleDelete = () => {
+
+        axiosLink.delete(`/delete-card/${ID}`)
+
+            .then(res => {
+                Swal.fire({
+                    title: "Delete Successful",
+                    text: "Your cart product successfully delete",
+                    icon: "success"
+                });
+                refetch()
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     return (
