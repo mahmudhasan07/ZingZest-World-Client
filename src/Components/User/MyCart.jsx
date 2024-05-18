@@ -79,7 +79,7 @@ const Card = ({ item, id }) => {
     }
 
     return (
-        <div className='border-2 border-gray-400 bg-gray-200 p-2 flex justify-around w-2/5 mx-auto rounded-2xl '>
+        <div className='border-2 border-gray-400 bg-gray-200 p-2 flex justify-around lg:w-2/5  md:w-4/5 w-11/12  mx-auto rounded-2xl '>
             <div className=' flex-1 my-auto'>
                 <img src={item?.image} className='w-32 h-32 object-cover rounded-xl' alt="" />
 

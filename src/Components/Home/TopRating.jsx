@@ -7,7 +7,7 @@ import AOS from "aos"
 
 const TopRating = () => {
     const [data, refetch] = useFetch("items", "toprating")
-    console.log(data);
+    // console.log(data);
     return (
         <section className="my-20">
             <div>

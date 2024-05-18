@@ -2,6 +2,7 @@ import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFoo
 import React from 'react';
 import { AiOutlineMenu } from "react-icons/ai";
 import Drawerbody from './Drawerbody';
+import { NavLink } from 'react-router-dom';
 
 const Drawermodal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -21,7 +22,7 @@ const Drawermodal = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader >
-            <h1 className='text-3xl italic font-bold'>ZingZest World</h1>
+           <NavLink to={'/'}> <h1 className='text-3xl italic font-bold'>ZingZest World</h1></NavLink>
           </DrawerHeader>
 
           <DrawerBody>

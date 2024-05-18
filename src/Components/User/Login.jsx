@@ -3,11 +3,12 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { } from "./User.css";
 import Swal from 'sweetalert2'
 import { Context } from '../ContextAPI/ContextAPI';
+import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
     // const [rowreverse, setrowreverse] = useState('')
-    const {signUser} = useContext(Context)
+    const {signUser, googleLogIn} = useContext(Context)
     const navigate = useNavigate()
 
     const handleLogIn = (e)=>{
@@ -24,6 +25,8 @@ const Login = () => {
             console.log(error);
         })
     }
+
+
 
 
 
@@ -47,7 +50,7 @@ const Login = () => {
                             <p>Forget your password??</p>
                         </div>
                         <div>
-                            <h1>LogIn With</h1>
+                            <button className='text-lg flex gap-1 bg-slate-200 font-semibold border-2 border-gray-800 rounded-2xl p-2' onClick={()=>googleLogIn()}>LogIn With Google <FcGoogle className='text-2xl my-auto'></FcGoogle> </button>
                             <div>
 
                             </div>

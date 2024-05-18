@@ -6,7 +6,7 @@ const WhyUs = () => {
     return (
         <section className='lg:my-14 md:my-10 my-7 overflow-hidden'>
             <h1 className='lg:text-4xl md:text-4xl text-3xl font-bold  text-center'>Why You Purchase From Us</h1>
-            <div className='flex flex-wrap my-6 justify-around'>
+            <div className='flex flex-wrap my-6 gap-8 justify-around'>
                 <div
                     data-aos="fade-right"
                     data-aos-offset="300"

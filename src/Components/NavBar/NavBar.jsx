@@ -48,7 +48,7 @@ const NavBar = () => {
         }
     }, [data]);
 
-    console.log(data);
+    // console.log(data);
 
 
     const handleInput = async (e) => {

@@ -35,20 +35,20 @@ const MyOrders = () => {
 const Cards = ({ card }) => {
     return (
         <div className="flex w-full bg-slate-100 text-black text-lg font-semibold rounded-xl p-2 justify-around border-2">
-            <div className="w-full ">
+            <div className=" ">
                 <img className="w-28 mx-auto h-full object-cover" src={card.image} alt="" />
             </div>
-            <div className="my-auto w-full">
+            <div className="my-auto ">
                 <h1>{card.name}</h1>
                 <h1>{card.brand}</h1>
             </div>
-            <div className="my-auto w-full">
+            <div className="my-auto ">
                 <h1>Price: {card.price}</h1>
                 <h1>Quantity: {card.quantity}</h1>
                 <h1>Size: {card.size}</h1>
 
             </div>
-            <div className="my-auto w-full">
+            <div className="my-auto ">
                 <h1><span>Status: </span><span className="border-2 bg-white p-1 rounded-xl">pending</span></h1>
             </div>
         </div>
