@@ -4,6 +4,7 @@ import ProductLoader from "../Loader/ProductLoader";
 import ProductLoaderView from "../Loader/ProductLoaderView";
 import Service from "../Service/Service";
 import TopBrand from "../TopBrand/TopBrand";
+import Contact from "./Contact";
 import Discount from "./Discount";
 import Parallaxbanner from "./Parallaxbanner";
 import TopRating from "./TopRating";
@@ -38,6 +39,9 @@ const Home = () => {
             </div>
             <div>
                 <WhyUs></WhyUs>
+            </div>
+            <div>
+                <Contact></Contact>
             </div>
             <div>
                 <Service></Service>
