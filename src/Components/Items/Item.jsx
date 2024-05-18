@@ -29,9 +29,9 @@ const Item = () => {
     }
     return (
 
-        <section className="my-10">
-            <h1 className="text-4xl font-bold text-center">Your {id?.id} items</h1>
-            <div className="flex justify-end mb-5 mr-10">
+        <section className="lg:my-10 my-5">
+            <h1 className="lg:text-4xl md:text-4xl text-3xl font-bold text-center">Your {id?.id} items</h1>
+            <div className="flex justify-end my-5 mr-10">
                 <select onChange={handleSort} ref={sort} className="border-2 p-1 text-lg border-gray-400 rounded-xl w-40" id="">
                     <option value="default">Default</option>
                     <option value="sorta-b">Low to High</option>

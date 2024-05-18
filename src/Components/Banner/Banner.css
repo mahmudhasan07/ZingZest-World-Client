@@ -5,4 +5,16 @@
 
 .swiper-slider>img {
     border-radius: 30px;
+    height: 80vh;
+}
+
+@media screen and (max-width: 835px) {
+    .swiper-slider>img{
+        height: 40vh;
+    }
+}
+@media screen and (max-width: 450px) {
+    .swiper-slider>img{
+        height: 30vh;
+    }
 }

@@ -19,7 +19,7 @@ const NavBar = () => {
     const axiosLink = useAxios(AxiosSource)
     const navigate = useNavigate()
     const { user, logOut } = useContext(Context)
-    const [length, setlength] = useState();
+    const [length, setlength] = useState("");
     const [userProfile, setUserProfile] = useState("hidden")
 
     // console.log(user);
@@ -40,13 +40,15 @@ const NavBar = () => {
 
     const [data, refetch] = useFetch1("carts", user?.email)
     useEffect(() => {
-        if (data == "l") {
+        if (data == "l" || data == "A") {
             return
         }
         else {
             setlength(data.length)
         }
     }, [data]);
+
+    console.log(data);
 
 
     const handleInput = async (e) => {
@@ -85,15 +87,15 @@ const NavBar = () => {
                         <Drawermodal></Drawermodal>
                     </div>
 
-                    <div id="logo" className=" my-auto">
-                        <NavLink to={'/'} className={''}><img className="w-56 " src={'https://i.ibb.co/yPwjW6f/logo.png'} alt="" /></NavLink>
+                    <div id="logo" className=" lg:block md:block hidden my-auto">
+                        <NavLink to={'/'} className={''}><img className="lg:w-56 md:w-40 w-32" src={'https://i.ibb.co/yPwjW6f/logo.png'} alt="" /></NavLink>
                     </div>
                 </div>
 
                 <div className="w-9/12 space-y-4">
-                    <div className="flex flex-wrap pt-1 lg:justify-around  md:justify-center  gap-5">
-                        <div className=" h-fit my-auto relative">
-                            <input ref={inputData} onChange={handleInput} type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl w-96  text-black bg-white" />
+                    <div className="flex flex-wrap pt-1  lg:justify-around  md:justify-center md:gap-5 gap-2">
+                        <div className=" h-fit my-auto lg:mx-0 md:mx-0 mx-auto relative">
+                            <input ref={inputData} onChange={handleInput} type="text" className="border-2 border-gray-600 py-1 px-2 rounded-3xl lg:w-96 md:w-72 w-64   text-black bg-white" />
                             <button onClick={handlesearch} className="text-2xl my-auto border-l-2 border-black text-black  end-1 absolute h-full px-1"><FaSearch className="" /></button>
                             <div id="seachscroll" className={`bg-white absolute h-96 overflow-auto border-2 border-gray-400 top-12 w-full text-center p-3 rounded-lg z-50 text-black ${search}`}>
                                 {

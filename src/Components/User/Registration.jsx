@@ -77,8 +77,8 @@ const Registration = () => {
     }
     return (
         <section className='bg-base-300 min-h-screen relative'>
-            <div id='login' className={`border-2 w-3/5 mx-auto absolute left-1/4 top-12  bg-white flex flex-row-reverse justify-between`}>
-                <div className='space-y-5 p-20  mx-auto'>
+            <div id='login' className={`border-2 lg:w-3/5  mx-auto absolute lg:left-1/4 lg:top-12 md:top-10 top-7  bg-white flex flex-wrap flex-row-reverse justify-between`}>
+                <div className='space-y-5 lg:p-20 md:p-14 p-8 mx-auto'>
                     <h1 className='text-3xl font-bold'>Registration <span>First</span></h1>
 
                     <form onSubmit={handleRegistration} action="" className='w-fit space-y-5 mx-auto'>
@@ -103,7 +103,7 @@ const Registration = () => {
                         <button className='btn bg-blue-600 hover:bg-blue-600 text-white text-lg'>Registration</button>
                     </form>
                 </div>
-                <div id='registrationBanner' className='px-3 w-1/2 text-white'>
+                <div id='registrationBanner' className='px-3 lg:w-1/2 w-full text-white'>
                     <div className=' text-center mt-20 space-y-2'>
                         <h1 className='text-4xl font-bold'>Welcome To <br /> Our Website</h1>
                         <p className='text-xl font-semibold'>Please enter your Name, Email & password for registration</p>

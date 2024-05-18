@@ -12,8 +12,8 @@ const TopRating = () => {
         <section className="my-20">
             <div>
                 <div className=" my-5  mx-10 ">
-                    <h1 className="text-4xl text-center font-bold">Top Rated Items</h1>
-                    <div className="flex justify-end">
+                    <h1 className="lg:text-4xl md:text-4xl text-3xl text-center font-bold">Top Rated Items</h1>
+                    <div className="flex my-3 justify-end">
                         <button className="btn font-bold">Load More</button>
                     </div>
                 </div>

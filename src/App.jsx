@@ -21,7 +21,7 @@ function App() {
       </div>
       <div>
         {
-          location.pathname == "/login" ?
+          location.pathname == "/login" ||location.pathname ==  "/registration" ?
           ""
           :
           <Footer></Footer>
