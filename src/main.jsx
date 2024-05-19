@@ -20,6 +20,7 @@ import MyOrders from './Components/User/MyOrders.jsx'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import MyCart from './Components/User/MyCart.jsx'
 import PrivateRoute from './Components/Private/PrivateRoute.jsx'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient()
 
@@ -69,16 +70,18 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ContextAPI>
-      <QueryClientProvider client={queryClient}>
-        <ChakraProvider >
-          <ParallaxProvider>
-            <RouterProvider router={router}>
-              <App></App>
-            </RouterProvider>
-          </ParallaxProvider>
-        </ChakraProvider>
-      </QueryClientProvider>
-    </ContextAPI>
+    <HelmetProvider>
+      <ContextAPI>
+        <QueryClientProvider client={queryClient}>
+          <ChakraProvider >
+            <ParallaxProvider>
+              <RouterProvider router={router}>
+                <App></App>
+              </RouterProvider>
+            </ParallaxProvider>
+          </ChakraProvider>
+        </QueryClientProvider>
+      </ContextAPI>
+    </HelmetProvider>
   </React.StrictMode>,
 )

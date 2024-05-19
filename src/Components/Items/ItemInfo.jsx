@@ -12,6 +12,7 @@ import { Rating, Star } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 import ProductLoaderView from "../Loader/ProductLoaderView";
+import { Helmet } from "react-helmet-async";
 // import ProductLoderView from "../Loader/ProductLoderView";
 
 
@@ -171,7 +172,7 @@ const ItemInfo = () => {
                                 data-aos-delay={300}
                                 data-aos-easing="ease-in-sine" className=" lg:flex-1">
                                 <div className="bg-slate-100 w-10/12 mx-auto p-2 rounded-xl">
-                                    <img className="w-80 mx-auto aspect-square rounded-2xl object-contain" src={data.allImages[imgNum]} alt="" />
+                                    <img className="w-80 mx-auto aspect-square rounded-2xl object-contain" src={data?.allImages[imgNum]} alt="" />
                                     <div className="flex justify-center overflow-auto my-5 lg:gap-10 gap-4">
                                         {
                                             data?.allImages.map((element, idx) => <img onClick={() => setimgNum(idx)} className="w-20 h-16 object-contain" key={idx} src={element}></img>)
@@ -184,8 +185,8 @@ const ItemInfo = () => {
                                 data-aos-delay={400}
                                 data-aos-easing="ease-in-sine" className=" lg:flex-1 my-auto space-y-2 mx-5 ">
                                 <h1 className="lg:text-3xl md:text-3xl text-2xl font-bold">{data.name}</h1>
-                                <p className="text-lg font-semibold">Brand: {data.brand}</p>
-                                <p className="text-lg font-semibold">Tk: {data.price}</p>
+                                <p className="text-lg font-semibold">Brand: {data?.brand}</p>
+                                <p className="text-lg font-semibold">Tk: {data?.price}</p>
                                 {
                                     data.size.length > 1 ?
                                         <div>
