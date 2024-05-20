@@ -1,5 +1,4 @@
 import Drawermodal from "./Drawermodal";
-import logo from "../../../public/logo (2).png"
 import { FaSearch } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";

@@ -160,6 +160,19 @@ const ItemInfo = () => {
     }
     return (
         <section>
+            <div>
+                {
+                    data == "l" ?
+                        ""
+                        :
+                        <Helmet prioritizeSeoTags>
+                            <head>
+                                <meta property="og:title" content={data?.name} />
+                                <meta property="og:image" content={data?.allImages[0]} />
+                            </head>
+                        </Helmet>
+                }
+            </div>
             <h1 className="lg:text-4xl md:text-4xl text-3xl text-center font-bold my-10">Your product information</h1>
             {
                 data == "l" ?
