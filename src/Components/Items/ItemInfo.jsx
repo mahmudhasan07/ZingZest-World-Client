@@ -167,8 +167,10 @@ const ItemInfo = () => {
                         :
                         <Helmet prioritizeSeoTags>
                             <head>
-                                <meta property="og:title" content={data?.name} />
-                                <meta property="og:image" content={data?.allImages[0]} />
+                                {`
+                                <meta property="og:title" content={${data?.name}} />
+                                <meta property="og:image" content={${data?.allImages[0]}} />
+                                `}
                             </head>
                         </Helmet>
                 }
