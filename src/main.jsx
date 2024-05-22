@@ -20,7 +20,7 @@ import MyOrders from './Components/User/MyOrders.jsx'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import MyCart from './Components/User/MyCart.jsx'
 import PrivateRoute from './Components/Private/PrivateRoute.jsx'
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient()
 

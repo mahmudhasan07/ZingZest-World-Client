@@ -3,6 +3,7 @@ import AddItem from "./Components/AddItem/AddItem"
 import NavBar from "./Components/NavBar/NavBar"
 import Footer from "./Components/Footer/Footer";
 import { Helmet } from "react-helmet-async";
+import SEO from "./Components/SEO/SEO";
 
 
 
@@ -15,14 +16,7 @@ function App() {
   return (
     <section>
       <div>
-        <Helmet prioritizeSeoTags>
-          <head>
-            {`
-             <meta property="og:title" content='ZingZest World Online Shopping' />
-             <meta property="og:image" content='https://i.ibb.co/jLxSLCL/Screenshot-2024-05-19-202144.png' 
-             `}
-          </head>
-        </Helmet>
+        <SEO title={'ZingZest World'} OGimage={'https://i.ibb.co/jLxSLCL/Screenshot-2024-05-19-202144.png'} OGtitle={'ZingZest World'}></SEO>
       </div>
       <div>
         <NavBar></NavBar>

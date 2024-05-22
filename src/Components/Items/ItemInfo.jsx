@@ -13,6 +13,7 @@ import { Rating, Star } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import ProductLoaderView from "../Loader/ProductLoaderView";
 import { Helmet } from "react-helmet-async";
+import SEO from "../SEO/SEO";
 // import ProductLoderView from "../Loader/ProductLoderView";
 
 
@@ -158,29 +159,19 @@ const ItemInfo = () => {
 
         }
     }
+
+    // console.log(data?.allImages[0]);
     return (
         <section>
-            <div>
-                {
-                    data == "l" ?
-                        ""
-                        :
-                        <Helmet prioritizeSeoTags>
-                            <head>
-                                {`
-                                <meta property="og:title" content={${data?.name}} />
-                                <meta property="og:image" content={${data?.allImages[0]}} />
-                                `}
-                            </head>
-                        </Helmet>
-                }
-            </div>
             <h1 className="lg:text-4xl md:text-4xl text-3xl text-center font-bold my-10">Your product information</h1>
             {
                 data == "l" ?
                     <ProductLoaderView></ProductLoaderView>
                     :
                     <section>
+                        <div>
+                            <SEO title={data?.name} OGtitle={data?.name} OGimage={data?.allImages[0]}></SEO>
+                        </div>
                         <div className="flex flex-wrap overflow-hidden gap-10 justify-around ">
                             <div data-aos="fade-right"
                                 data-aos-offset="300"
@@ -199,7 +190,7 @@ const ItemInfo = () => {
                                 data-aos-offset="300"
                                 data-aos-delay={400}
                                 data-aos-easing="ease-in-sine" className=" lg:flex-1 my-auto space-y-2 mx-5 ">
-                                <h1 className="lg:text-3xl md:text-3xl text-2xl font-bold">{data.name}</h1>
+                                <h1 className="lg:text-3xl md:text-3xl text-2xl font-bold">{data?.name}</h1>
                                 <p className="text-lg font-semibold">Brand: {data?.brand}</p>
                                 <p className="text-lg font-semibold">Tk: {data?.price}</p>
                                 {
