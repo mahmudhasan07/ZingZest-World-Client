@@ -16,7 +16,7 @@ function App() {
   return (
     <section>
       <div>
-        <SEO title={'ZingZest World'} OGimage={'https://i.ibb.co/jLxSLCL/Screenshot-2024-05-19-202144.png'} OGtitle={'ZingZest World'}></SEO>
+        <SEO title={'ZingZest World'} OGimage={'https://i.ibb.co/jLxSLCL/Screenshot-2024-05-19-202144.png'} OGtitle={'ZingZest World Online Shopping'}></SEO>
       </div>
       <div>
         <NavBar></NavBar>
