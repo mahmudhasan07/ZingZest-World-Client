@@ -2,7 +2,6 @@ import { Outlet, useLocation } from "react-router-dom"
 import AddItem from "./Components/AddItem/AddItem"
 import NavBar from "./Components/NavBar/NavBar"
 import Footer from "./Components/Footer/Footer";
-import { Helmet } from "react-helmet-async";
 import SEO from "./Components/SEO/SEO";
 
 
