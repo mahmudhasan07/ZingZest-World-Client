@@ -13,7 +13,7 @@ import { Rating, Star } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import ProductLoaderView from "../Loader/ProductLoaderView";
 import { Helmet } from "react-helmet-async";
-import SEO from "../SEO/SEO";
+import SEOFile from "../SEO/SEO";
 // import ProductLoderView from "../Loader/ProductLoderView";
 
 
@@ -170,7 +170,7 @@ const ItemInfo = () => {
                     :
                     <section>
                         <div>
-                            <SEO title={data?.name} OGtitle={data?.name} OGimage={data?.allImages[0]}></SEO>
+                            <SEOFile title={data?.name} OGtitle={data?.name} OGimage={data?.allImages[0]}></SEOFile>
                         </div>
                         <div className="flex flex-wrap overflow-hidden gap-10 justify-around ">
                             <div data-aos="fade-right"

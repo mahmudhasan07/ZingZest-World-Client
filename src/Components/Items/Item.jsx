@@ -14,7 +14,7 @@ const Item = () => {
     const sort = useRef()
     const [sortData, setSortData] = useState()
     const [data, refetch] = useFetch1("search", id?.id, sortData)
-    console.log(data);
+    // console.log(data);
     useEffect(() => {
         AOS.init()
     }, [])

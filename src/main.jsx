@@ -24,7 +24,7 @@ import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient()
 
-
+const helmetContext = {};
 const router = createBrowserRouter([
   {
     path: '/',
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
       <ContextAPI>
         <QueryClientProvider client={queryClient}>
           <ChakraProvider >
