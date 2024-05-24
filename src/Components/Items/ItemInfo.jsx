@@ -170,7 +170,17 @@ const ItemInfo = () => {
                     :
                     <section>
                         <div>
-                            <SEOFile title={data?.name} OGtitle={data?.name} OGimage={data?.allImages[0]}></SEOFile>
+                            {/* <SEOFile title={data?.name} OGtitle={data?.name} OGimage={data?.allImages[0]}></SEOFile> */}
+                            <Helmet >
+                                {/* <link rel='icon' type="image" href={data?.allImages[0]} /> */}
+                                {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
+                                <title>{data?.name}</title>
+                                <meta property="og:title" content={data?.name} />
+                                <meta property="og:image" content={data?.allImages[0]} />
+                                <meta property="og:image:width" content="1200" />
+                                <meta property="og:image:height" content="600" />
+                                <meta property="og:image:alt" content="Image is Loading..." />
+                            </Helmet>
                         </div>
                         <div className="flex flex-wrap overflow-hidden gap-10 justify-around ">
                             <div data-aos="fade-right"

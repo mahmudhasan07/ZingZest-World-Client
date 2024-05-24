@@ -2,7 +2,7 @@ import { Outlet, useLocation } from "react-router-dom"
 import AddItem from "./Components/AddItem/AddItem"
 import NavBar from "./Components/NavBar/NavBar"
 import Footer from "./Components/Footer/Footer";
-import SEO from "./Components/SEO/SEO";
+import SEOFile from "./Components/SEO/SEO";
 
 
 
@@ -14,9 +14,9 @@ function App() {
 
   return (
     <section>
-      {/* <div>
-        <SEO title={'ZingZest World'} OGimage={'https://i.ibb.co/jLxSLCL/Screenshot-2024-05-19-202144.png'} OGtitle={'ZingZest World Online Shopping'}></SEO>
-      </div> */}
+      <div>
+        <SEOFile title='ZingZest World' OGimage='https://i.ibb.co/2Zm86yp/galcier.jpg' OGtitle='Mahmud Hasan Siddique'></SEOFile>
+      </div>
       <div>
         <NavBar></NavBar>
       </div>
