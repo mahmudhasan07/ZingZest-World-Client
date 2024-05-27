@@ -169,19 +169,17 @@ const ItemInfo = () => {
                     <ProductLoaderView></ProductLoaderView>
                     :
                     <section>
-                        <div>
                             {/* <SEOFile title={data?.name} OGtitle={data?.name} OGimage={data?.allImages[0]}></SEOFile> */}
-                            <Helmet >
+                            <Helmet prioritizeSeoTags>
                                 {/* <link rel='icon' type="image" href={data?.allImages[0]} /> */}
                                 {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
                                 <title>{data?.name}</title>
-                                <meta property="og:title" content={data?.name} />
-                                <meta property="og:image" content={data?.allImages[0]} />
+                                <meta property="og:title" content='product Details' />
+                                <meta property="og:image" content='https://i.ibb.co/f9g36Zz/exploresphere-high-resolution-logo-transparent-1.png' />
                                 <meta property="og:image:width" content="1200" />
                                 <meta property="og:image:height" content="600" />
                                 <meta property="og:image:alt" content="Image is Loading..." />
                             </Helmet>
-                        </div>
                         <div className="flex flex-wrap overflow-hidden gap-10 justify-around ">
                             <div data-aos="fade-right"
                                 data-aos-offset="300"

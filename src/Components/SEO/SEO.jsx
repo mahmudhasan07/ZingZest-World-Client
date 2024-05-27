@@ -5,9 +5,9 @@ const SEOFile = ({ title, OGimage, OGtitle }) => {
 
     return (
         <section>
-            <Helmet>
+            <Helmet prioritizeSeoTags>
                 {/* <meta charset="UTF-8" /> */}
-                <link rel='icon' type="image" href={OGimage} />
+                {/* <link rel='icon' type="image" href={OGimage} /> */}
                 {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
                 <meta property="og:title" content={OGtitle} />
                 <meta property="og:image" content={OGimage} />

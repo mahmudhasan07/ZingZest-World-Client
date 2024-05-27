@@ -15,7 +15,7 @@ function App() {
   return (
     <section>
       <div>
-        <SEOFile title='ZingZest World' OGimage='https://i.ibb.co/2Zm86yp/galcier.jpg' OGtitle='Mahmud Hasan Siddique'></SEOFile>
+        {/* <SEOFile title='ZingZest World' OGimage='https://i.ibb.co/2Zm86yp/galcier.jpg' OGtitle='Mahmud Hasan Siddique'></SEOFile> */}
       </div>
       <div>
         <NavBar></NavBar>
