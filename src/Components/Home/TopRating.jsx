@@ -2,14 +2,16 @@ import { Rating, Star } from "@smastrom/react-rating";
 import useFetch from "../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 import ProductLoader from "../Loader/ProductLoader";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AOS from "aos"
 
 const TopRating = () => {
     const [data, refetch] = useFetch("items", "toprating")
+    const top = useRef()
+    // console.log(top);
     // console.log(data);
     return (
-        <section className="my-20">
+        <section ref={top} className="my-20">
             <div>
                 <div className=" my-5  mx-10 ">
                     <h1 className="lg:text-4xl md:text-4xl text-3xl text-center font-bold">Top Rated Items</h1>

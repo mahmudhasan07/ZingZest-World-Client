@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import useFetch1 from "../Hooks/useFetch1";
 import { Rating, Star } from "@smastrom/react-rating";
 import { } from "./Discount.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { set } from "react-hook-form";
 import ProductLoader from "../Loader/ProductLoader";
 import AOS from "aos"
@@ -13,13 +13,14 @@ const Discount = () => {
     const [hour, setHour] = useState(12)
     const [min, setMin] = useState(50)
     const [sec, setSec] = useState(60)
-
+    const top = useRef()
+    console.log(top);
     // const timer = setInterval(()=>{
     //     setSec((pre)=> pre-1)
     //     console.log(sec);
     // },5000)
     return (
-        <section className="lg:my-20 my-10">
+        <section  className="lg:my-20 my-10">
             <div>
                 <h1 className="lg:text-4xl md:text-4xl text-3xl font-bold text-center my-10">Discounts of all Electronic Accessories</h1>
 

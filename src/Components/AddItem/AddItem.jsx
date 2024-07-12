@@ -13,14 +13,7 @@ const AddItem = () => {
         const image = {image: data.imagefile[0]}
         console.log(image);
 
-        axios.post('https://api.imgbb.com/1/upload?key=890925a8320c10ec4aec72015adb4563')
-
-
-
-
-
-
-    }
+        axios.post('https://api.imgbb.com/1/upload?key=890925a8320c10ec4aec72015adb4563')}
 
     let allimages = []
 
