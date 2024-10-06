@@ -55,7 +55,7 @@ const Card = ({ card, id }) => {
             <h1 className="text-lg font-semibold">{card.name}</h1>
             <div className="mt-auto">
                 <Rating className="mx-auto" style={{ maxWidth: 100 }} value={card?.review || 0} readOnly={true} itemStyles={{ itemShapes: Star, activeFillColor: '#ffb700', inactiveFillColor: '#fbf1a9' }} />
-                <h1 className="w-fit mx-auto relative">TK. <span className="middle relative">{card.price}</span> <span className=" ">{parseFloat(card?.price * (80 / 100))}</span></h1>
+                <p className="w-fit mx-auto text-black relative">TK. <s className=" line-through">{card.price}</s> <span className=" ">{parseFloat(card?.price * (80 / 100))}</span></p>
             </div>
             <p></p>
         </div>

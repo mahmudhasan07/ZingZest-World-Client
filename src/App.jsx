@@ -13,7 +13,7 @@ function App() {
 
 
   return (
-    <section>
+    <section className="container">
       <div>
         {/* <SEOFile title='ZingZest World' OGimage='https://i.ibb.co/2Zm86yp/galcier.jpg' OGtitle='Mahmud Hasan Siddique'></SEOFile> */}
       </div>

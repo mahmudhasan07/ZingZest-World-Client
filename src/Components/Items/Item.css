@@ -3,7 +3,24 @@
     /* transition: all .5s; */
 }
 
-#card:hover{
+#card:hover > img{
     transform: scale(1.08);
     transition: all .5s;
 }
+
+#cardId{
+    /* height: ; */
+    /* height: calc(100vh - 250px); */
+}
+
+@media screen and (max-width : 835px) {
+    #cardId{
+        height: 100%;
+    }
+}
+
+/* @media screen and (max-width : 450px) {
+    #cardId{
+        height: 100px;
+    }
+} */

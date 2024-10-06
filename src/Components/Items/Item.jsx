@@ -16,7 +16,9 @@ const Item = () => {
     const [data, refetch] = useFetch1("search", id?.id, sortData)
     // console.log(data);
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init()
+        // window.scrollTo(0); 
     }, [])
 
     const handleSort = (e) => {
@@ -29,7 +31,7 @@ const Item = () => {
     }
     return (
 
-        <section className="lg:my-10 my-5">
+        <section id='cardId' className="lg:my-10 my-5 ">
             <h1 className="lg:text-4xl md:text-4xl text-3xl font-bold text-center">Your {id?.id} items</h1>
             <div className="flex justify-end my-5 mr-10">
                 <select onChange={handleSort} ref={sort} className="border-2 p-1 text-lg border-gray-400 rounded-xl w-40" id="">
@@ -39,7 +41,7 @@ const Item = () => {
                     <option value="toprating">Top Rating</option>
                 </select>
             </div>
-            <div className="flex lg:justify-start justify-center flex-wrap my-5 gap-8 mx-10">
+            <div className=" flex flex-wrap lg:justify-start md:justify-start justify-center my-5 gap-10 2xl:mx-10 mx-[70px]">
                 {
                     data == "l" ?
                         <ProductLoader></ProductLoader>
@@ -66,9 +68,9 @@ const Cards = ({ card, id }) => {
     return (
         <div data-aos="fade-right"
             data-aos-offset="300"
-            data-aos-delay={id * 250}
-            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-64 text-center card border-2 shadow-2xl border-gray-400 p-2 bg-slate-200 rounded-2xl">
-            <img className=" h-52 my-1 mx-auto rounded-2xl py-1 object-cover " src={card?.allImages[0]} alt="" />
+            data-aos-delay={id * 100}
+            data-aos-easing="ease-in-sine" id="card" onClick={() => navigate(card._id)} className="w-72 h-96 text-center card border-2 shadow-2xl border-gray-400 p-2 bg-slate-200 rounded-2xl">
+            <img className=" h-60 w-52 my-1 mx-auto rounded-2xl py-1 object-cover object-top " src={card?.allImages[0]} alt="" />
             <div className="my-auto ">
             <h1 className="text-lg font-bold">{card?.name}</h1>
             {

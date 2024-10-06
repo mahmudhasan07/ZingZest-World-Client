@@ -8,7 +8,7 @@ import Lottie from "lottie-react";
 
 const ProductLoader = () => {
     return (
-        <div className='mx-auto w-fit'>
+        <div className='mx-auto w-fit h-[100vh]'>
             {/* <SunspotLoader
                 gradientColors={["#6366F1", "#E0E7FF"]}
                 shadowColor={"#3730A3"}
